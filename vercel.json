@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+      {
+          "src": "*.py",
+          "use": "@rodneicilto/DP-L2023"
+      }
+  ],
+  "routes": [
+      {
+          "src": "(.*)",
+          "dest": "main.py"
+      }
+  ]
+}
