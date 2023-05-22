@@ -3,7 +3,7 @@
   "builds": [
       {
           "src": "*.py",
-          "use": "@rodneicilto/DP-L2023"
+          "use": "@vercel/python"
       }
   ],
   "routes": [
