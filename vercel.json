@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
       {
-          "src": "*.py",
-          "use": "@versel/python"
+          "api": "*.py",
+          "use": "@rodneicilto/DP-L2023"
       }
   ],
   "routes": [
       {
-          "src": "(.*)",
-          "dest": "main.py"
+          "api": "(.*)",
+          "dest": "user.py"
       }
   ]
 }
