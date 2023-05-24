@@ -6,20 +6,20 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return 'Home Page Route'
+    return render_tamplate('/html/index.html')
 
 
-@app.route('/about')
+@app.route('/html/about')
 def about():
     return 'About Page Route'
 
 
-@app.route('/portfolio')
+@app.route('/html/portfolio')
 def portfolio():
     return 'Portfolio Page Route'
 
 
-@app.route('/contact')
+@app.route('/html/contact')
 def contact():
     return 'Contact Page Route'
 
