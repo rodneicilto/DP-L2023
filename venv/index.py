@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 
 
-app = Flask(__name__, template_folder='template')
+app = Flask(__name__, template_folder='template', static_folder='static')
 
 @app.route('/')
 def home():
@@ -24,3 +24,6 @@ def api():
     with open('data.json', mode='r') as my_file:
         text = my_file.read()
         return text
+        
+if __name__=="__main__":
+    app.run(debug=True)
