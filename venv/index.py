@@ -7,15 +7,15 @@ app = Flask(__name__, template_folder='template', static_folder='static')
 def home():
     return render_template('index.html')
 
-@app.route('/html/about')
+@app.route('/about')
 def about():
     return 'About Page Route'
 
-@app.route('/html/portfolio')
+@app.route('/portfolio')
 def portfolio():
     return 'Portfolio Page Route'
 
-@app.route('/html/contact')
+@app.route('/contact')
 def contact():
     return 'Contact Page Route'
 
