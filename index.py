@@ -7,11 +7,11 @@ app = Flask(__name__, template_folder='template', static_folder='static')
 def home():
     return render_template('index.html')
 
-@app.route('/result', methods= ['POST', 'GET'])
+@app.route('/', methods= ['POST', 'GET'])
 def result():
     if request.method == 'POST':
         result = request.form
-        return render_template("result.html",result = result)
+        return render_template("result.html", result = result)
 
 @app.route('/about')
 def about():
