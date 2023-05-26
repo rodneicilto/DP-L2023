@@ -1,13 +1,11 @@
 from flask import Flask, render_template, request
-
-
 app = Flask(__name__, template_folder='template', static_folder='static')
 
 @app.route('/')
 def home():
     return render_template('index.html')
 
-@app.route('/', methods= ['POST', 'GET'])
+@app.route('/result', methods= ['POST', 'GET'])
 def result():
     if request.method == 'POST':
         result = request.form
