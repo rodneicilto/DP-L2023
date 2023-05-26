@@ -163,50 +163,45 @@
   
   <h1 class="visually-hidden">Heroes examples</h1>
 
-  <div class="px-4 py-5 my-5 text-center">
-    <img class="d-block mx-auto mb-4" src="/static/img/logo_vuln.png" alt="" width="72" height="72">
-    <h1 class="display-5 fw-bold text-body-emphasis">Cadastro de email com vulnerabilidades</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">Esta função se apçlica para o cadastro.................</p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <form class="needs-validation" novalidate>
-            <div class="row g-3">
-              <div class="col-sm-6">
-                <label for="firstName" class="form-label">Digite seu nome</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  Necessário digitar o nome.
-                </div>
-              </div>
-              <div class="col-12">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="you@example.com" value="" required>
-                <div class="invalid-feedback">
-                  Digite um email válido.
-                </div>
-              </div>
-  
-              <div class="col-md-5">
-                <label for="country" class="form-label">Selecione um Software</label>
-                <select class="form-select" id="country" required>
-                  <option value="">Escolha...</option>
-                  <option>Windows Server 2012</option>
-                  <option>Windows 11</option>
-                  <option>Android</option>
-                </select>
-                <div class="invalid-feedback">
-                  Por favor selecione uma opção valida.
-                </div>
-              </div>
-            <button class="w-100 btn btn-primary btn-lg" type="submit">Enviar informações</button>
-          </form>
-        </div>
-        <!--<button type="button" class="btn btn-primary btn-lg px-4 gap-3">Button 1</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Button 2</button>-->
+  <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Vulnerabilidades por email</h1>
+        <p class="col-lg-10 fs-4">Cadastre seu email indicando uma vulnerabilitade e receba informação por email</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <label for="country" class="form-label">Softwarer</label>
+            <select class="form-select" id="country" required>
+              <option value="">Escolha...</option>
+              <option>Windows Server</option>
+              <option>Windows 11</option>
+              <option>Android</option>
+              <option>Linux Debian</option>
+            </select>
+            <div class="invalid-feedback">
+              Seleccione uma informação correta
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Data inicial">
+            <label for="floatingPassword">Data Inicial</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Data Final">
+            <label for="floatingPassword">Data Final</label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Cadastrar</button>
+          <hr class="my-4">
+          <small class="text-body-secondary">Clique no botão para cadastrar a vulnerabilitade</small>
+        </form>
       </div>
     </div>
-  </div>
-
   <div class="b-example-divider"></div>
 
   <div class="px-4 pt-5 my-5 text-center border-bottom">
