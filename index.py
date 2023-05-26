@@ -7,21 +7,16 @@ app = Flask(__name__, template_folder='template', static_folder='static')
 def home():
     return render_template('index.html')
 
-@app.route('/form', methods= ['POST'])
-def form():
-    name = request.form['name_input']
-    email = request.form['email_input']
-    sftw = request.form['sftw_input']
-    dateS = request.form['dateS_input']
-    dateE = request.form['dataE_input']
+@app.route('/result', methods= ['POST', 'GET'])
+def result():
+    if request.method == 'POST':
+        result = request.form
+        return text
 
 def save(text,filepath='test.txt'):
     with open("test.txt", "w") as f:
         f.write(text)
 app.run()
-
-
-
 
 @app.route('/about')
 def about():
