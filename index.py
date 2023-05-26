@@ -11,12 +11,7 @@ def home():
 def result():
     if request.method == 'POST':
         result = request.form
-        return text
-
-def save(text,filepath='test.txt'):
-    with open("test.txt", "w") as f:
-        f.write(text)
-app.run()
+        return render_template("result.html",result = result)
 
 @app.route('/about')
 def about():
