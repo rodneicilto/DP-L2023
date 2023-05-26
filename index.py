@@ -1,15 +1,21 @@
 from flask import Flask, render_template, request
+from os import listdir
 app = Flask(__name__, template_folder='template', static_folder='static')
 
 @app.route('/')
 def home():
     return render_template('index.html')
 
-@app.route('/result', methods= ['POST', 'GET'])
-def result():
-    if request.method == 'POST':
-        result = request.form
-        return render_template("result.html", result = result)
+    @app.route('/', methods= ['POST', 'GET'])
+    def form_home():
+        input_name = request.form['name_input']
+        input_email = request.form['email_input']
+        input_sof = request.form['sof_input']
+        input_startD = request.form['dateS_input']
+        input_endD = request.form['dateE_input']
+        if request.method == 'POST':
+            f.write(str(input_name,input_email,input_sof,input_startD,input_endD))
+            return render_template("index.html", nopol=input_name)
 
 @app.route('/about')
 def about():
