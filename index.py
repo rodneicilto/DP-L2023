@@ -6,17 +6,17 @@ app = Flask(__name__, template_folder='template', static_folder='static')
 def home():
     return render_template('index.html')
 
-    @app.route('/', methods= ['POST', 'GET'])
-    def form_home():
-        input_name = request.form['name_input']
-        input_email = request.form['email_input']
-        input_sof = request.form['sof_input']
-        input_startD = request.form['dateS_input']
-        input_endD = request.form['dateE_input']
-        if request.method == 'POST':
-            with open('nopol.txt', 'w') as f:
-                f.write(str(input_name,input_email,input_sof,input_startD,input_endD))
-        return render_template("index.html", nopol=input_name)
+@app.route('/', methods= ['post', 'get'])
+def form_home():
+    input_name = request.form['name_input']
+    input_email = request.form['email_input']
+    input_sof = request.form['sof_input']
+    input_startD = request.form['dateS_input']
+    input_endD = request.form['dateE_input']
+    if request.method == 'POST':
+        with open('nopol.txt', 'w') as f:
+            f.write(str(input_name,input_email,input_sof,input_startD,input_endD))
+    return render_template("index.html", nopol=input_name)
 
 @app.route('/about')
 def about():
