@@ -13,9 +13,11 @@ def form_home():
     input_sof = request.form['sof_input']
     input_startD = request.form['dateS_input']
     input_endD = request.form['dateE_input']
-    if request.method == 'POST':
+    if request.method == 'post':
         with open('/tmp/nopol.txt', 'w') as f:
             f.write(str(input_name))
+            f.write(str(input_email))
+            f.write(str(input_sof))
     return render_template("index.html", nopol=input_name)
 
 @app.route('/about')
