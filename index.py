@@ -14,7 +14,7 @@ def form_home():
     input_startD = request.form['dateS_input']
     input_endD = request.form['dateE_input']
     if request.method == 'POST':
-        with open('nopol.txt', 'w') as f:
+        with open('/tmp/nopol.txt', 'w') as f:
             f.write(str(input_name,input_email,input_sof,input_startD,input_endD))
     return render_template("index.html", nopol=input_name)
 
