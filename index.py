@@ -6,7 +6,7 @@ app = Flask(__name__, template_folder='template', static_folder='static')
 def home():
     return render_template('index.html')
 
-@app.route('/', methmds= ['post', 'get'])
+@app.route('/', methods= ['post', 'get'])
 def form_home():
     input_name = request.form['name_input']
     input_email = request.form['email_input']
