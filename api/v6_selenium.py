@@ -1,6 +1,7 @@
 import os
 import time
 import pandas as pd
+from send_email import send
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -89,6 +90,7 @@ try:
     time.sleep(10)
 
     browser.quit()
+    send()
 
 except:
     print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
@@ -97,3 +99,4 @@ except:
     print('Topic NOT Found: ', vulnerability)
     print('')
     print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
+    send()
