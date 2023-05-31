@@ -8,9 +8,9 @@ app = Flask(__name__, template_folder='template', static_folder='static')
 def home():
     return render_template('index.html')
 
-@app.route('/contact')
+@app.route('/contact', methods=['post'])
 def contact():
-    return 'Contact Page Route'
+    if request.method == 'post': 
         print(request.form)
         print(request.form['name_input'])
         print(request.form['email_input'])
