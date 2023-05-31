@@ -11,6 +11,7 @@ def home():
 @app.route('/contact')
 def contact():
     return 'Contact Page Route'
+        print(request.form)
         print(request.form['name_input'])
         print(request.form['email_input'])
         print(request.form['sof_input'])
