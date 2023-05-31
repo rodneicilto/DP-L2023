@@ -8,25 +8,9 @@ app = Flask(__name__, template_folder='template', static_folder='static')
 def home():
     return render_template('index.html')
 
-@app.route('/', methods=['post', 'get'])
-def form_home():
-    if request.method == 'post':
-<<<<<<< HEAD
-        with open('nopol_1.txt', 'w') as f:
-            f.write(str(input_name))
-    return render_template("index.html", nopol_1=input_name)
-
-@app.route('/about')
-def about():
-    return 'About Page Route'
-
-@app.route('/portfolio')
-def portfolio():
-    return 'Portfolio Page Route'
-
-@app.route('/contact')
+@app.route('/contact', methods=['post'])
 def contact():
-    return 'Contact Page Route'
+    if request.method == 'post': 
         print(request.form)
         print(request.form['name_input'])
         print(request.form['email_input'])
