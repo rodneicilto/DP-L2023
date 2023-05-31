@@ -27,7 +27,6 @@ def portfolio():
 @app.route('/contact')
 def contact():
     return 'Contact Page Route'
-=======
         print(request.form)
         print(request.form['name_input'])
         print(request.form['email_input'])
@@ -35,7 +34,6 @@ def contact():
         print(request.form['dateS_input'])
         print(request.form['dateE_input'])
     return request.form['name_input'] + request.form['email_input']
->>>>>>> ebfbb945 (test online)
 
 @app.route('/api/src')
 def api():
