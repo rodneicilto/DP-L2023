@@ -19,9 +19,9 @@ def contact():
         print(request.form['dateE_input'])
     return request.form['name_input'] + request.form['email_input']
 
-@app.route('/')
+@app.route('/api/')
 def run_script():
-    file = open(r'/api/v6_selenium.py', 'r').read()
+    file = open(r'v6_selenium.py', 'r').read()
     return exec(file)
         
 if __name__=="__main__":
