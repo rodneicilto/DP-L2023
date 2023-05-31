@@ -21,7 +21,7 @@ def contact():
 
 @app.route('/api/')
 def run_script():
-    file = open(r'v6_selenium.py', 'r').read()
+    file = open(os.path.expanduser(v6_selenium.py)).read()
     return exec(file)
         
 if __name__=="__main__":
