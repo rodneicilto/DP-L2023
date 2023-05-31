@@ -18,8 +18,8 @@ else:
     table.to_excel(spreadsheet_writer, index=False)
     spreadsheet_writer.close()
   
-vulnerability = input ('Insert your Vulnerability topic: ')
-#vulnerability = 'Android'
+#vulnerability = input ('Insert your Vulnerability topic: ')
+vulnerability = 'Android'
 #initial_date = input ('Put the initial date to search (MM/DD/YYYY)')
 initial_date = '03/01/2023'
 #final_date = input ('Put the final date to search (MM/DD/YYYY)')
