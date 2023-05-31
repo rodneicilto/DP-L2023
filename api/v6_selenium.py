@@ -19,7 +19,7 @@ else:
     spreadsheet_writer.close()
   
 #vulnerability = input ('Insert your Vulnerability topic: ')
-vulnerability = 'Android'
+vulnerability = 'Microsoft SQL Server'
 #initial_date = input ('Put the initial date to search (MM/DD/YYYY)')
 initial_date = '03/01/2023'
 #final_date = input ('Put the final date to search (MM/DD/YYYY)')
