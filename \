@@ -19,16 +19,10 @@ def contact():
         print(request.form['dateE_input'])
     return request.form['name_input'] + request.form['email_input']
 
-@app.route(/)
-def run_script():
+@app.route('/api')
+def api():
     file = open(r'/api/v6_selenium.py', 'r').read()
     return exec(file)
-
-@app.route('/api/src')
-def api():
-    with open('data.json', mode='r') as my_file:
-        text = my_file.read()
-        return text
         
 if __name__=="__main__":
     app.run(debug=True)
