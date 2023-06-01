@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from os import listdir
+from sned_email import send 
 #from gevent.pyswgi import WSGIServer
 
 app = Flask(__name__, template_folder='template', static_folder='static')
@@ -17,7 +18,7 @@ def contact():
         print(request.form['sof_input'])
         print(request.form['dateS_input'])
         print(request.form['dateE_input'])
-    return request.form['name_input'] + request.form['email_input']
+    return send('name_input')
 
 @app.route('/')
 def run_script():
