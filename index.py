@@ -18,8 +18,7 @@ def contact():
         print(request.form['sof_input'])
         print(request.form['dateS_input'])
         print(request.form['dateE_input'])
-        send_email.send('name_input')
-    return "OK"
+    return send_email.send('name_input')
 
 #@app.route('/')
 #def run_script():
