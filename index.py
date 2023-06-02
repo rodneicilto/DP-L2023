@@ -9,7 +9,7 @@ app = Flask(__name__, template_folder='template', static_folder='static')
 def home():
     return render_template('index.html')
 
-@app.route('/contact', methods = ['post'])
+@app.route('/contact', methods=['post'])
 def contact():
     if request.method == 'post': 
         print(request.form)
@@ -19,7 +19,7 @@ def contact():
         print(request.form['dateS_input'])
         print(request.form['dateE_input'])
         send_email.send('name_input')
-    return "OK" + request.form['name_input']
+    return "OK"
 
 #@app.route('/')
 #def run_script():
