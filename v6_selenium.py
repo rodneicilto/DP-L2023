@@ -95,7 +95,7 @@ def web_scraping(v_sw, v_dateS, v_dateE):
     #send()
 
     except:
-        #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
+        print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
         #print('')
         #print('No Data was Found with parameters provided')
         #print('Topic NOT Found: ', vulnerability)
