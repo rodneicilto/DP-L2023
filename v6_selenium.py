@@ -17,7 +17,7 @@ def web_scraping(v_sw, v_dateS, v_dateE):
     if os.path.exists("Vulnerability.xls"):
         os.remove("Vulnerability.xls")
         table = pd.DataFrame({'Software/System': [], 'CVE': [], 'Current Description': [], 'Severity': [], 'References': [], 'Afected Software': [], 'NVD Date': [], 'Link to Issue': [] })
-        spreadsheet_writer = pd.ExcelWriter(v_sw+'Vulnerability.xls', engine='xlsxwriter')
+        spreadsheet_writer = pd.ExcelWriter(str(v_sw)+'Vulnerability.xls', engine='xlsxwriter')
         table.to_excel(spreadsheet_writer, index=False)
         spreadsheet_writer.close()
     else:
