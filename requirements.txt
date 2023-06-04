@@ -1,5 +1,6 @@
 Flask==2.2.2
 pandas==2.0.2
 xlsxwriter
+xlrd
 selenium==4.9.1
 
