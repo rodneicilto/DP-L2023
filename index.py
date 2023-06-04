@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, flash
 from os import listdir
-from send_email import send 
+import send_email 
 #from gevent.pyswgi import WSGIServer
 
 app = Flask(__name__, template_folder='template', static_folder='static')
