@@ -5,7 +5,8 @@ import email.message
 from email import encoders
 from datetime import datetime
 
-def send(email_dest): 
+def send(email_dest):
+    encoders.encode_base64(att)
     reader = pd.read_excel('Vulnerability.xls')
     body = reader.to_html()
     corpo_email = body
