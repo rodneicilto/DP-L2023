@@ -4,6 +4,7 @@ from send_email import send
 #from gevent.pyswgi import WSGIServer
 
 app = Flask(__name__, template_folder='template', static_folder='static')
+app.secret_key="asd"
 
 name_fsite = ''
 sof_fsite = ''
