@@ -28,7 +28,8 @@ def search():
     email_fsite = str(request.form['email_input'])
     sof_fsite = str(request.form['sof_input'])
     replace_fsite = str(request.form['dateS_input']).split("-")
-    dateS = replace_fsite'/'.join(d[:2], d[2:4], d[4:])
+    dateS = replace_fsite
+    '/'.join([d[:2], d[2:4], d[4:]])
     dateS_fsite = dateS
     #dateS_fsite = replace_fsite[1] + replace_fsite[2] + replace_fsite[0]
     replace_fsite = str(request.form['dateE_input']).replace("-","/")
