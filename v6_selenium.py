@@ -102,9 +102,10 @@ def web_scraping(v_sw, v_dateS, v_dateE):
         #print('')
         #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
         #send()
-def get_data(v_sw = str, v_dateS = str, v_dateE = str):
+        
+def get_data(v_sw_fsite = str, v_dateS_fsite = str, v_dateE_fsite = str):
     read = []
-    read = web_scraping(v_sw, v_dateS, vdateE)
+    read = web_scraping(v_sw_fsite, v_dateS_fsite, vdateE_fsite)
     return read
     #dt_pes = []
     #result_auto []
