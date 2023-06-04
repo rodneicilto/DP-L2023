@@ -6,6 +6,7 @@ from email import encoders
 from datetime import datetime
 
 def send(email_dest):
+    bufferSize = 64 * 1024
     reader = pd.read_excel('Vulnerability.xls')
     body = reader.to_html()
     corpo_email = body
@@ -16,7 +17,7 @@ def send(email_dest):
     msg['To'] = email_dest
     password = 'cpzocyejvwzwgagv' 
     msg.add_header('Content-Type', 'text/html')
-    msg.set_payload(corpo_email )
+    msg.set_payload(corpo_email)
 
     s = smtplib.SMTP('smtp.gmail.com: 587')
     s.starttls()

@@ -40,7 +40,7 @@ def search():
      #list_form = v6_selenium.web_scraping(name_fsite, email_fsite, sof_fsite, dateS_fsite, dateE_fsite)
      #send_form = v6_selenium.envia_file(list_form[1])
     send_email.send(list_email) #send_form
-    return render_template ("pesquisa.html")
+    return render_template("pesquisa.html")
 
 #@app.route('/')
 #def run_script():
