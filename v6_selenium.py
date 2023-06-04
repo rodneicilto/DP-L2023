@@ -108,7 +108,6 @@ def web_scraping(v_sw, v_dateS, v_dateE):
         #print('')
         #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
         #send()
-    return vuln_link
         
 #def get_data(v_sw_fsite = str, v_dateS_fsite = str, v_dateE_fsite = str):
 #    read = []
