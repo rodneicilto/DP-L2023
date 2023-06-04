@@ -31,7 +31,7 @@ def search():
     replace_fsite = str(request.form['dateS_input']).split("-")
     dS = replace_fsite[1] + replace_fsite[2] + replace_fsite[0]
     dateS_fsite = dS
-    '/'.join([dateS_fsite[:2],dateS_fsite[2:4],dateS_fsite[4:]])
+    "-".join([dateS_fsite[:2],dateS_fsite[2:4],dateS_fsite[4:]])
     #dateS_fsite = dateS
     #dateS_fsite = replace_fsite[1] + replace_fsite[2] + replace_fsite[0]
     replace_fsite = str(request.form['dateE_input']).replace("-","/")
