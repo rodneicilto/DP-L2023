@@ -2,7 +2,7 @@ import smtplib
 import pandas as pd
 import email.message
 
-def send(): 
+def send(email_dest): 
     reader = pd.read_excel('Vulnerability.xls')
     body = reader.to_html()
     corpo_email = body
@@ -10,7 +10,7 @@ def send():
     msg = email.message.Message()
     msg['Subject'] = "Vulnerabilidades Críticas Data"
     msg['From'] = 'valimfabiano@gmail.com'
-    msg['To'] = 'rodnei.cilto@gmail.com'
+    msg['To'] = email_dest
     password = 'cpzocyejvwzwgagv' 
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(corpo_email )
