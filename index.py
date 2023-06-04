@@ -1,4 +1,4 @@
-from flask import Flask, render_template, requesti, flash
+from flask import Flask, render_template, request, flash
 from os import listdir
 from send_email import send 
 #from gevent.pyswgi import WSGIServer
