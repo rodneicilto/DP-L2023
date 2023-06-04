@@ -35,11 +35,11 @@ def search():
     #print(request.form['dateS_input'])
     #print(request.form['dateE_input'])
     list_email = []
-    list_email.append(email_site)
+    #list_email.append(email_fsite)
      #list_form_fill = []
      #list_form = v6_selenium.web_scraping(name_fsite, email_fsite, sof_fsite, dateS_fsite, dateE_fsite)
      #send_form = v6_selenium.envia_file(list_form[1])
-    send_email.send(list_femal) #send_form
+    send_email.send() #send_form
     return render_template ("pesquisa.html")
 
 #@app.route('/')

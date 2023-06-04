@@ -3,7 +3,7 @@ import pandas as pd
 import email.message
 
 def send(): 
-    reader = pd.read_excel('Vulnerability.xls')
+    #reader = pd.read_excel('Vulnerability.xls')
     body = reader.to_html()
     corpo_email = body
 
