@@ -27,9 +27,9 @@ def search():
     name_fsite = str(request.form['name_input'])
     email_fsite = str(request.form['email_input'])
     sof_fsite = str(request.form['sof_input'])
-    replace_fsite = str(request.form['dateS_input'])
+    replace_fsite = str(request.form['dateS_input']).split("/")
     dateS_fsite = replace_fsite[1] + replace_fsite[2] + replace_fsite[0]
-    replace_fsite = str(request.form['dateE_input'])
+    replace_fsite = str(request.form['dateE_input']).split("/")
     dateE_fsite = replace_fsite[1] + replace_fsite[2] + replace_fsite[0]
     list_email = []
     list_email.append(email_fsite)
