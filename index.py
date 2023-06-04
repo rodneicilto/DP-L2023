@@ -43,7 +43,7 @@ def search():
     list_form_fill = []
     list_form_fill = v6_selenium.web_scraping(sof_fsite, dateS_fsite, dateE_fsite)
     send_email.send(list_email) #send_form
-    return render_template("pesquisa.html", dateS=dateS_fsite, dateSs=orig, dateSss=replace_fsiste1)
+    return render_template("pesquisa.html", dateS=dateS_fsite, dateSs=orig, dateSss=replace_fsite1)
 
 #@app.route('/')
 #def run_script():
