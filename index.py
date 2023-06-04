@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, flash
 from os import listdir
 import send_email 
+import v6_selenium
 #from gevent.pyswgi import WSGIServer
 
 app = Flask(__name__, template_folder='template', static_folder='static')
@@ -26,19 +27,14 @@ def search():
     name_fsite = str(request.form['name_input'])
     email_fsite = str(request.form['email_input'])
     sof_fsite = str(request.form['sof_input'])
-    #dateS_fsite = 
-    #dateE_fsite
-    #str(request.form)
-    #print(request.form['name_input'])
-    #print(request.form['email_input'])
-    #print(request.form['sof_input'])
-    #print(request.form['dateS_input'])
-    #print(request.form['dateE_input'])
+    replace_dS_fsite = str(request_form['dateS_input']).split("-")
+    dateS_fsite = replace_dS_fsite[1] + replace_dS_fsite[2] + replace_dS_fsite[0]
+    replace_dE_fsite = str(request_form['dateE_input']).split("-")
+    dateE_fsite = replace_dE_fsite[1] + replace_dE_fsite[2] + replace_dE_fsite[0]
     list_email = []
     list_email.append(email_fsite)
-     #list_form_fill = []
-     #list_form = v6_selenium.web_scraping(name_fsite, email_fsite, sof_fsite, dateS_fsite, dateE_fsite)
-     #send_form = v6_selenium.envia_file(list_form[1])
+    list_form_fill = []
+    list_form_fill = v6_selenium.get_date(sof_fsite, dateS_fsite, dateE_fsite)
     send_email.send(list_email) #send_form
     return render_template("pesquisa.html")
 
