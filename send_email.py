@@ -10,7 +10,7 @@ def send():
     msg = email.message.Message()
     msg['Subject'] = "Vulnerabilidades Críticas Data"
     msg['From'] = 'valimfabiano@gmail.com'
-    msg['To'] = 'valimfabiano@outlook.com'
+    msg['To'] = 'rodnei.cilto@gmail.com'
     password = 'cpzocyejvwzwgagv' 
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(corpo_email )
