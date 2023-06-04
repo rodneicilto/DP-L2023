@@ -104,23 +104,7 @@ def web_scraping(v_sw, v_dateS, v_dateE):
         #send()
     return
         
-def get_data(v_sw_fsite = str, v_dateS_fsite = str, v_dateE_fsite = str):
-    read = []
-    read = web_scraping(v_sw_fsite, v_dateS_fsite, vdateE_fsite)
-    return read
-    #dt_pes = []
-    #result_auto []
-    #if read[0] == 0:
-        #print(len(leitor[1]))
-        #control = 0
-        #for i in range(0, len(read[1])):
-            #dt_pes.append(web_share(v_sw, read[1][i]))
-            #control += 1
-            #print(control)
-        #r_read.append(0)
-        #r_read.append(dt_pes)
-        #return r_read
-    #else:
-        #r_read.append(-1)
-        #r_read.append([-1])
-        #return r_read
+#def get_data(v_sw_fsite = str, v_dateS_fsite = str, v_dateE_fsite = str):
+#    read = []
+#    read = web_scraping(v_sw_fsite, v_dateS_fsite, vdateE_fsite)
+#    return read
