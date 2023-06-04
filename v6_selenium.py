@@ -5,6 +5,12 @@ import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import requests
+import re
+import json
 
 if os.path.exists("Vulnerability.xls"):
    os.remove("Vulnerability.xls")
@@ -102,7 +108,7 @@ def web_scraping(v_sw, v_dateS, v_dateE):
         #print('')
         #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
         #send()
-    return
+    return vuln_link
         
 #def get_data(v_sw_fsite = str, v_dateS_fsite = str, v_dateE_fsite = str):
 #    read = []
