@@ -6,7 +6,6 @@ from email import encoders
 from datetime import datetime
 
 def send(email_dest):
-    encoders.encode_base64(att)
     reader = pd.read_excel('Vulnerability.xls')
     body = reader.to_html()
     corpo_email = body
@@ -23,6 +22,6 @@ def send(email_dest):
     s.starttls()
     # Login Credentials for sending the mail
     s.login(msg['From'], password)
-    s.sendmail(msg['From'],msg['To'],msg.as_string())
+    s.sendmail(msg['From'],msg['To'],msg.as_string().encode('utf-8')
     #print('Email enviado')
     s.quit()
