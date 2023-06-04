@@ -1,6 +1,9 @@
+import os
 import smtplib
 import pandas as pd
 import email.message
+from email import encoders
+from datetime import datetime
 
 def send(email_dest): 
     reader = pd.read_excel('Vulnerability.xls')
