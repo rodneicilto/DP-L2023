@@ -24,5 +24,4 @@ def send(email_dest):
     s.login(msg['From'], password)
     s.sendmail(msg['From'],msg['To'],msg.as_string())
     #print('Email enviado')
-   
-s.quit()
+    s.quit()
