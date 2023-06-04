@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash, redirect
 from os import listdir
 import send_email 
 import v6_selenium
@@ -27,9 +27,9 @@ def search():
     name_fsite = str(request.form['name_input'])
     email_fsite = str(request.form['email_input'])
     sof_fsite = str(request.form['sof_input'])
-    replace_dS_fsite = str(request_form['dateS_input']).split("-")
+    replace_dS_fsite = str(request.form['dateS_input']).split("-")
     dateS_fsite = replace_dS_fsite[1] + replace_dS_fsite[2] + replace_dS_fsite[0]
-    replace_dE_fsite = str(request_form['dateE_input']).split("-")
+    replace_dE_fsite = str(request.form['dateE_input']).split("-")
     dateE_fsite = replace_dE_fsite[1] + replace_dE_fsite[2] + replace_dE_fsite[0]
     list_email = []
     list_email.append(email_fsite)
