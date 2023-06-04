@@ -20,7 +20,7 @@ def search():
     flash('Dados inserido, aguarde que logo será enviado o resultado')
     if str(request.form['dateS_input']) == '' or str(request.form['dateE_input']) == '':
         return render_template("falha.html")
-    if str(reqiest.form['sof_input']) == '' or str(request.form['email_input']) == '':
+    if str(request.form['sof_input']) == '' or str(request.form['email_input']) == '':
         return render_template("falha.html")
     name_fsite = str(request.form['name_input'])
     email_fsite = str(request.form['email_input'])
