@@ -12,19 +12,19 @@ import requests
 import re
 import json
 
-if os.path.exists("Vulnerability.xls"):
-   os.remove("Vulnerability.xls")
-   table = pd.DataFrame({'Software/System': [], 'CVE': [], 'Current Description': [], 'Severity': [], 'References': [], 'Afected Software': [], 'NVD Date': [], 'Link to Issue': [] })
-   spreadsheet_writer = pd.ExcelWriter('Vulnerability.xls', engine='xlsxwriter')
-   table.to_excel(spreadsheet_writer, index=False)
-   spreadsheet_writer.close()
-else:
-    table = pd.DataFrame({'Software/System': [], 'CVE': [], 'Current Description': [], 'Severity': [], 'References': [], 'Afected Software': [], 'NVD Date': [], 'Link to Issue': [] })
-    spreadsheet_writer = pd.ExcelWriter('Vulnerability.xls', engine='xlsxwriter')
-    table.to_excel(spreadsheet_writer, index=False)
-    spreadsheet_writer.close()
-
 def web_scraping(v_sw, v_dateS, v_dateE):
+    
+    if os.path.exists("Vulnerability.xls"):
+        os.remove("Vulnerability.xls")
+        table = pd.DataFrame({'Software/System': [], 'CVE': [], 'Current Description': [], 'Severity': [], 'References': [], 'Afected Software': [], 'NVD Date': [], 'Link to Issue': [] })
+        spreadsheet_writer = pd.ExcelWriter('Vulnerability.xls', engine='xlsxwriter')
+        table.to_excel(spreadsheet_writer, index=False)
+        spreadsheet_writer.close()
+    else:
+        table = pd.DataFrame({'Software/System': [], 'CVE': [], 'Current Description': [], 'Severity': [], 'References': [], 'Afected Software': [], 'NVD Date': [], 'Link to Issue': [] })
+        spreadsheet_writer = pd.ExcelWriter('Vulnerability.xls', engine='xlsxwriter')
+        table.to_excel(spreadsheet_writer, index=False)
+        spreadsheet_writer.close()
 
     #vulnerability = input ('Insert your Vulnerability topic: ')
     vulnerability = v_sw
