@@ -27,10 +27,10 @@ def search():
     name_fsite = str(request.form['name_input'])
     email_fsite = str(request.form['email_input'])
     sof_fsite = str(request.form['sof_input'])
-    orig = str(request.form['dateS_input'])
     replace_fsite = str(request.form['dateS_input']).split("-")
-    c['dS'] = replace_fsite[1] + replace_fsite[2] + replace_fsite[0]
-    dateS_fsite = c['dS']
+    dS = replace_fsite[1] + replace_fsite[2] + replace_fsite[0]
+    dS1 = replace_fsite[1] + '/' + replace_fsite[2] + '/' replace_fsite[0]
+    dateS_fsite = dS
     "-".join([dateS_fsite[:2],dateS_fsite[2:4],dateS_fsite[4:]])
     #dateS_fsite = dateS
     #dateS_fsite = replace_fsite[1] + replace_fsite[2] + replace_fsite[0]
@@ -42,7 +42,7 @@ def search():
     list_form_fill = []
     list_form_fill = v6_selenium.web_scraping(sof_fsite, dateS_fsite, dateE_fsite)
     send_email.send(list_email) #send_form
-    return render_template("pesquisa.html", dateS=dateS_fsite, dateSs=orig, dateSss=replace_fsite1)
+    return render_template("pesquisa.html", dateS=dateS_fsite, dateSs=dS1, dateSss=replace_fsite1)
 
 #@app.route('/')
 #def run_script():
