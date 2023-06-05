@@ -31,14 +31,14 @@ def web_scraping(v_sw, v_dateS, v_dateE):
     #initial_date = input ('Put the initial date to search (MM/DD/YYYY)')
     initial_date = ", ".join(v_dateS)
     #final_date = input ('Put the final date to search (MM/DD/YYYY)')
-    final_date = ". ".join(v_dateE)
+    final_date = ", ".join(v_dateE)
 
     try:
         op = webdriver.ChromeOptions()
         #op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-        op.add_argument("--headless")
-        op.add_argument("--disable-dev-shm-usage")
-        op.add_argument("--no-sandbox")
+        op.add_argument('headless')
+        #op.add_argument("--disable-dev-shm-usage")
+        #op.add_argument("--no-sandbox")
         browser = webdriver.Chrome(options=op)
         #browser.maximize_window()
         #browser.minimize_window()
