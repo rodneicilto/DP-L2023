@@ -36,7 +36,7 @@ def web_scraping(v_sw, v_dateS, v_dateE):
     try:
         op = webdriver.ChromeOptions()
         #op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-        op.add_argument('headless')
+        #op.add_argument('headless')
         #op.add_argument("--disable-dev-shm-usage")
         #op.add_argument("--no-sandbox")
         browser = webdriver.Chrome(options=op)
