@@ -39,7 +39,7 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
         op.add_argument("--headless")
         op.add_argument("--disable-dev-shm-usage")
         op.add_argument("--no-sandbox")
-        browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
+        browser = webdriver.Chrome(driver_path='chromedriver', chrome_options=op, services_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
         #browser.maximize_window()
         #browser.minimize_window()
 
