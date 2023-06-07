@@ -6,9 +6,8 @@ from email import encoders
 from datetime import datetime
 
 def send(email_dest,name_file):
-    tmp = /tmp
     bufferSize = 64 * 1024
-    reader = pd.read_excel(tmp+name_file+'vulnerability.xls')
+    reader = pd.read_excel(/tmp/+name_file+'vulnerability.xls')
     body = reader.to_html()
     corpo_email = body
 
