@@ -7,9 +7,10 @@ from datetime import datetime
 
 def send(email_dest,name_file):
     bufferSize = 64 * 1024
-    reader = pd.read_excel(name_file+'vulnerability.xls')
+    reader = pd.read_excel(tmp+name_file+'vulnerability.xls')
     body = reader.to_html()
     corpo_email = body
+    tmp = /tmp
 
     msg = email.message.Message()
     msg['Subject'] = "Vulnerabilidades Críticas Data"

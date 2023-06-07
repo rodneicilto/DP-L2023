@@ -14,10 +14,11 @@ import json
 
 def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
     
+    tmp = /tmp
     #if os.path.exists("Vulnerability.xls"):
         #os.remove("Vulnerability.xls")
     table = pd.DataFrame({'Software/System': [], 'CVE': [], 'Current Description': [], 'Severity': [], 'References': [], 'Afected Software': [], 'NVD Date': [], 'Link to Issue': [] })
-    spreadsheet_writer = pd.ExcelWriter(name_fsite+'vulnerability.xls', engine='xlsxwriter')
+    spreadsheet_writer = pd.ExcelWriter(tmp+name_fsite+'vulnerability.xls', engine='xlsxwriter')
     table.to_excel(spreadsheet_writer, index=False)
     spreadsheet_writer.close()
     #else:
@@ -91,8 +92,8 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
         #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
 
             table = pd.DataFrame({'Software/System': [vulnerability], 'CVE': [vuln_id], 'Current Description': [vuln_description], 'Severity': [vuln_severity], 'References': [vuln_reference], 'Afected Software': [vuln_affected], 'NVD Date': [vuln_date], 'Link to Issue': [vuln_link] })
-            reader = pd.read_excel(name_fsite+'vnulnerability.xls')
-            writer = pd.ExcelWriter(name_fsite+'vulnerability.xls', engine='openpyxl', mode='a', if_sheet_exists="overlay")
+            reader = pd.read_excel(tmp+name_fsite+'vnulnerability.xls')
+            writer = pd.ExcelWriter(tmp+name_fsite+'vulnerability.xls', engine='openpyxl', mode='a', if_sheet_exists="overlay")
             table.to_excel(writer, index=False, header=False, startrow=len(reader) + 1)
             writer.close()
             browser.back()
