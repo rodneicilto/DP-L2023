@@ -12,7 +12,7 @@ import requests
 import re
 import json
 
-def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, list_email):
+def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
     
     #if os.path.exists("Vulnerability.xls"):
         #os.remove("Vulnerability.xls")
@@ -91,14 +91,14 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, list_email):
         #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
 
             table = pd.DataFrame({'Software/System': [vulnerability], 'CVE': [vuln_id], 'Current Description': [vuln_description], 'Severity': [vuln_severity], 'References': [vuln_reference], 'Afected Software': [vuln_affected], 'NVD Date': [vuln_date], 'Link to Issue': [vuln_link] })
-            reader = pd.read_excel('Vulnerability.xls')
-            writer = pd.ExcelWriter('Vulnerability.xls', engine='openpyxl', mode='a', if_sheet_exists="overlay")
+            reader = pd.read_excel(name_fsite'vnulnerability.xls')
+            writer = pd.ExcelWriter(name_fsite+'vulnerability.xls', engine='openpyxl', mode='a', if_sheet_exists="overlay")
             table.to_excel(writer, index=False, header=False, startrow=len(reader) + 1)
             writer.close()
             browser.back()
         time.sleep(10)
         browser.quit()
-        send_email.send(email_list, name_fsite)
+        send_email.send(email_fsite, name_fsite)
 
     except:
         print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
@@ -107,7 +107,7 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, list_email):
         #print('Topic NOT Found: ', vulnerability)
         #print('')
         #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
-        #send()
+        send_email.send(email_fsite, name_fsite)
         
 #def get_data(v_sw_fsite = str, v_dateS_fsite = str, v_dateE_fsite = str):
 #    read = []

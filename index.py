@@ -35,7 +35,7 @@ def search():
     #list_email.append(email_fsite)
     #list_email = send_email.send(email_fsite, name_fsite)
     list_form_fill = []
-    list_form_fill = v6_selenium.web_scraping(sof_fsite, dateS_fsite, dateE_fsite, name_fsite, list_email)
+    list_form_fill = v6_selenium.web_scraping(sof_fsite, dateS_fsite, dateE_fsite, name_fsite, email_fsite)
     #send_email.send(list_email) #send_form
     return render_template("pesquisa.html")
 
