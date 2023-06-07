@@ -12,7 +12,7 @@ def send(email_dest,name_file):
     corpo_email = body
 
     msg = email.message.Message()
-    msg['Subject'] = "Vulnerabilidades Críticas Data"
+    msg['Subject'] = "Vulnerabilidades Críticas Data"+name_file
     msg['From'] = 'valimfabiano@gmail.com'
     msg['To'] = (email_dest)
     password = 'cpzocyejvwzwgagv' 
