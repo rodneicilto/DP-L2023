@@ -5,7 +5,7 @@ import email.message
 from email import encoders
 from datetime import datetime
 
-def send(email_dest):
+def send(email_dest,name_fsite):
     bufferSize = 64 * 1024
     reader = pd.read_excel('Vulnerability.xls')
     body = reader.to_html()
