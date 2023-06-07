@@ -27,11 +27,11 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite):
         #spreadsheet_writer.close()
 
     #vulnerability = input ('Insert your Vulnerability topic: ')
-    vulnerability = ", ".join(v_sw)
+    vulnerability = (v_sw)
     #initial_date = input ('Put the initial date to search (MM/DD/YYYY)')
-    initial_date = ", ".join(v_dateS)
+    initial_date = (v_dateS)
     #final_date = input ('Put the final date to search (MM/DD/YYYY)')
-    final_date = ", ".join(v_dateE)
+    final_date = (v_dateE)
 
     try:
         op = webdriver.ChromeOptions()
