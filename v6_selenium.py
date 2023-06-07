@@ -1,7 +1,7 @@
 import os
 import time
 import pandas as pd
-#from send_email import send
+import send_email
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -12,7 +12,7 @@ import requests
 import re
 import json
 
-def web_scraping(v_sw, v_dateS, v_dateE, name_fsite):
+def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, list_email):
     
     #if os.path.exists("Vulnerability.xls"):
         #os.remove("Vulnerability.xls")
@@ -98,7 +98,7 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite):
             browser.back()
         time.sleep(10)
         browser.quit()
-    #send()
+        send_email.send(email_list, name_fsite)
 
     except:
         print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
