@@ -35,17 +35,16 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
     final_date = (v_dateE)
 
     try:
-        #op = webdriver.ChromeOptions()
+        op = webdriver.ChromeOptions()
         #op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-        #op.add_argument("--headless")
-        #op.add_argument("--disable-dev-shm-usage")
-        #op.add_argument("--no-sandbox")
-        #browser = webdriver.Chrome(driver_path='chromedriver', chrome_options=op, services_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
-        #browser.maximize_window()
-        #browser.minimize_window()
-        display = Display(visible=0, size=(1024, 768))
-        display.start()
-        driver = webdriver.Chrome(driver_path='chromedriver', service_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
+        op.add_argument("--headless=new")
+        op.add_argument("--disable-dev-shm-usage")
+        op.add_argument("--no-sandbox")
+        browser = webdriver.Chrome(driver_path='chromedriver', chrome_options=op, services_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
+
+        #display = Display(visible=0, size=(1024, 768))
+        #display.start()
+        #driver = webdriver.Chrome(driver_path='chromedriver', service_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
 
         browser.get('https://nvd.nist.gov/vuln/search')
         link = browser.find_element(By.ID, 'Keywords').send_keys(vulnerability)
