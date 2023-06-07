@@ -45,7 +45,7 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
         #browser.minimize_window()
         display = Display(visible=0, size=(1024, 768))
         display.start()
-        driver = webdriver.Chrome(driver_path='chromedriver', service_args=['--verbose','--log-path=/tmp/chromedriver.log']
+        driver = webdriver.Chrome(driver_path='chromedriver', service_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
 
         browser.get('https://nvd.nist.gov/vuln/search')
         link = browser.find_element(By.ID, 'Keywords').send_keys(vulnerability)
