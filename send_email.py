@@ -7,7 +7,7 @@ from datetime import datetime
 
 def send(email_dest,name_fsite):
     bufferSize = 64 * 1024
-    reader = pd.read_excel('Vulnerability.xls')
+    reader = pd.read_excel(name_fsite+'Vulnerability.xls')
     body = reader.to_html()
     corpo_email = body
 
