@@ -17,7 +17,7 @@ import pandas as pd
 
 #nome_da_planilha = "VulnerabilidadesSolicitadas"
 
-def send(email_fsite, name_fsite, dicionario):
+def send(email_fsite, name_fsite):
     
     nome_da_planilha = name_fsite+'_vulnerability.xls'
 
@@ -42,6 +42,7 @@ def send(email_fsite, name_fsite, dicionario):
     #!-------------------------------------------------------------------------------------------------------------
     #!2 - Constroi o email tipo MIME -- texto
     #!-------------------------------------------------------------------------------------------------------------
+    dicionario = null
     df = pd.DataFrame(dicionario)
     df = df.drop(columns=['Descrição']) #tirando a coluna
     df = df.drop(columns=['Referências para recomendações, soluções e ferramentas']) #tirando a coluna
