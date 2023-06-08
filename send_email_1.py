@@ -24,7 +24,7 @@ def send(email_dest, name_file):
     msg['To'] = (email_dest)
     password = 'cpzocyejvwzwgagv'
     msg.set_payload(corpo_email)
-    msg.attach(MIMEText(mail_content, 'plain'))
+    msg.attach(MIMEText(corpo_email, 'plain'))
     attach_file = open(fileAttach, 'rb')
     payload = MIMEBase('application', 'octate-stream')
     payload.set_payload((attach_file).read())
