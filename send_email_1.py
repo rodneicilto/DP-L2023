@@ -30,9 +30,9 @@ def send(email_fsite, name_fsite):
     encoders.encode_base64(att)
     # Set text content
     #msg.set_content('Please see attached file')
-    att.add_header('Content-Disposition',f'attach_file; filename=fileName')
+    att.add_header('Content-Disposition','attach_file', filename=fileName)
     attach_file.close()
-    f = open('/tmp/'+name_fsite+'_vulnerability.xls')
+    #f = open('/tmp/'+name_fsite+'_vulnerability.xls')
     #f.write(arr_str)
     #f.read()
     msg.attach(att)
