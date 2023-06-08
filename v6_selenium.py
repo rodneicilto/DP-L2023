@@ -1,7 +1,7 @@
 import os
 import time
 import pandas as pd
-import send_email
+import send_email_1
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service as ChromeService

@@ -22,15 +22,6 @@ def send(email_dest,name_file):
     password = 'cpzocyejvwzwgagv'
     #msg.add_header('Content-Type', 'text/html')
     msg.set_payload(corpo_email)
-    
-    msg.attach(MIMEText(body, 'plain'))
-    filename = name_file+'_vulnerability.xls'
-    attachment = open("/tmp/")
-
-    p = MIMEBase('application', 'octet-stream')
-    p.set_payload((attachment).read())
-    encoders.encode_base64(p)
-    p.add_header('Content-Disposition', "attachment; filename = %s" % filename)
 
     s = smtplib.SMTP('smtp.gmail.com: 587')
     s.starttls()
