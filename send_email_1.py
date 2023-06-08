@@ -67,7 +67,7 @@ def send(email_fsite, name_fsite):
     #Abre o arquivo em modo leitura e binary
     # path_file_attach = os.path.dirname(os.path.realpath(__file__)) + "\\" + nome_da_planilha + ".xlsx"
     # attchment = open(path_file_attach, 'rb')
-    attchment = open('/tmp/'+nome_fsite+'_vulnerability.xls', 'rb')
+    attchment = open('/tmp/'+name_fsite+'_vulnerability.xls', 'rb')
 
     #Lê o arquivo em modo binário e coloca ele no email codificado em base 64 (que é o que o email precisa)
     att = MIMEBase('application', 'octet-stream')
