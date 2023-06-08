@@ -32,7 +32,7 @@ def send(email_dest, name_file):
     # Set text content
     #msg.set_content('Please see attached file')
     att.add_header('Content-Decomposition', f'attachment; filename=fileAttach')
-    attch_file.close()
+    attach_file.close()
     msg.attach(att)
 
     s = smtplib.SMTP('smtp.gmail.com: 587')
