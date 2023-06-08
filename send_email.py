@@ -4,7 +4,7 @@ import pandas as pd
 import email.message
 from email import encoders
 from datetime import datetime
-from email.mime.applications import MIMEApplication
+from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.utils import COMMASPACE, formatdate
