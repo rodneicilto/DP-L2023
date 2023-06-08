@@ -36,67 +36,23 @@ def send(email_fsite, name_fsite):
     #server.ehlo()
     server.starttls()
     server.login(login, password)
+    reader = pd.read_excel('/tmp/'+name_fsite+'_vulnerability.xls')
+    body = read.to_html()
+    corpo_email = body
 
 
 
     #!-------------------------------------------------------------------------------------------------------------
     #!2 - Constroi o email tipo MIME -- texto
     #!-------------------------------------------------------------------------------------------------------------
-    df = pd.DataFrame()
-    df = df.drop(columns=['Current Description']) #tirando a coluna
-    df = df.drop(columns=['References']) #tirando a coluna
-    df = df.drop(columns=['Afected Software']) #tirando a coluna
 
     #todo aqui embaixo, neste grupo, eu verifico quais itens da severidade possuem valor menor q 7 e excluo suas linhas do q ira no corpo do email
-    dicionario_severidades = df.to_dict()['Severity']
-    indices_para_excluir = []
-    indice = 0
-    for i in list(dicionario_severidades.values()):
-        if len(i) == 1:
-            if(i[0].__contains__("N/A")):
-                indices_para_excluir.append(indice)
-            elif float(i[0][:3]) < 7:
-                indices_para_excluir.append(indice)
-        else:
-            if( (not(i[0].__contains__("N/A"))) and (not(i[1].__contains__("N/A"))) ):
-                if (float(i[0][:3]) < 7) and (float(i[1][:3]) < 7):
-                    indices_para_excluir.append(indice)
-            elif( (not(i[0].__contains__("N/A"))) and (i[1].__contains__("N/A")) ):
-                if float(i[0][:3]) < 7:
-                    indices_para_excluir.append(indice)
-            elif( (i[0].__contains__("N/A")) and (not(i[1].__contains__("N/A"))) ):
-                if float(i[1][:3]) < 7:
-                    indices_para_excluir.append(indice)
-            else: #caso os dois baseScore-cvss forem N/A
-                indices_para_excluir.append(indice)
-        indice += 1
-    for i in indices_para_excluir:
-        df = df.drop(i)
-    #todo termina aqui essa lógica para exclusao  -----------------------------------------------------------------------------------------------
-    corpo_email_2 = ""
-    if(int(df.shape[0]) > 20):
-        corpo_email_2 = "A quantidade de vulnerabilidade críticas ou altas é superior a 20. Verificar demais resultados no anexo."
-
-    corpo_email = df.to_html(index=False,justify="center",render_links=True,max_rows=20) #converte para html
-    corpo_email = corpo_email.replace("[","").replace("]","").replace(", "," - ").replace("'","")
-    corpo_email = corpo_email.replace("HIGH","'High'").replace("MEDIUM","'Medium'").replace("CRITICAL","'Critical'").replace("LOW","'Low'")
-    corpo_email = corpo_email.replace("<tr style=\"text-align: center;\">","<tr style=\"text-align: center;\" bgcolor=\"DimGray\">")
-    corpo_email = corpo_email.replace("<tr>","<tr style=\"text-align: center;\">")
-    corpo_email = corpo_email.replace("<th>Software/Sistema</th>","<th><font color=\"White\"> Software/Sistema </font></th>")
-    corpo_email = corpo_email.replace("<th>CVE</th>","<th><font color=\"White\"> CVE </font></th>")
-    corpo_email = corpo_email.replace("<th>Severidade</th>","<th><font color=\"White\"> Severidade </font></th>")
-    corpo_email = corpo_email.replace("<th>Data de publicação NVD</th>","<th><font color=\"White\"> Data de publicação NVD </font></th>")
-    corpo_email = corpo_email.replace("<th>Link CVE</th>","<th><font color=\"White\"> Link CVE </font></th>")
-    corpo_email = corpo_email.replace("'High'","<font color=\"Orange\">'High'</font>")
-    corpo_email = corpo_email.replace("'Critical'","<font color=\"Red\">'Critical'</font>")
-
     email_msg = MIMEMultipart()
     email_msg['Subject'] = 'Vulnerabilidades Críticas Data '+ datetime.today().strftime("%Y-%m-%d %H:%M:%S") #pega a data atual
     email_msg['From'] = login
     email_msg['To'] = email_fsite
     email_msg.attach(MIMEText("Abaixo está uma tabela apenas com as CVE's cuja as severidades foram dadas como altas/críticas por pelo um dos padrões CVSS Versão 3.x (NIST ou CNA). Em anexo, segue planilha do excel com dados completos solicitados independente da severidade.",'Plain'))
     email_msg.attach(MIMEText(corpo_email,'html'))
-    email_msg.attach(MIMEText(corpo_email_2,'Plain'))
 
     # print("----------------------------------------")
     # print("----------------------------------------")
