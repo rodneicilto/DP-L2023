@@ -111,7 +111,7 @@ def send(email_fsite, name_fsite, dicionario):
     #Abre o arquivo em modo leitura e binary
     # path_file_attach = os.path.dirname(os.path.realpath(__file__)) + "\\" + nome_da_planilha + ".xlsx"
     # attchment = open(path_file_attach, 'rb')
-    attchment = open('VulnerabilidadesSolicitadas.xlsx', 'rb')
+    attchment = open('/tmp/'+nome_fsite+'_vulnerability.xls', 'rb')
 
     #Lê o arquivo em modo binário e coloca ele no email codificado em base 64 (que é o que o email precisa)
     att = MIMEBase('application', 'octet-stream')
@@ -119,7 +119,7 @@ def send(email_fsite, name_fsite, dicionario):
     encoders.encode_base64(att)
 
     #Adiciona o cabeçalho no tipo anexo de email
-    att.add_header('Content-Disposition','attachment; filename={nome_da_planilha}.xlsx')
+    att.add_header('Content-Disposition','attachment; filename={nome_da_planilha}.xls')
 
     #fecha o arquivo
     attchment.close()
