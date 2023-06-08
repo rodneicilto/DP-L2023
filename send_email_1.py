@@ -41,4 +41,4 @@ def send(email_fsite, name_fsite):
     #text = msg.as_string()
     s.send_message(msg.as_string().encode('utf-8'),msg['From'],msg['To'])
     #msg.as_string().encode('utf-8'))
-    s.quit()
+s.quit()
