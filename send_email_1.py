@@ -27,7 +27,7 @@ def send(email_dest, name_file):
     with open(filename, 'rb') as fp:
         file_data = fp.read()
         maintype, _, subtype = (mimetypes.guess_type(filename)[0] or 'application/octet-stream').partition("/tmp/")
-        email.add_attachment(file_data, maintype=maintype, subtype=subtype, filename=filename)
+        msg.attach(file_data, maintype=maintype, subtype=subtype, filename=filename)
     # Set text content
     msg.set_content('Please see attached file')
     # Attach files
