@@ -31,7 +31,7 @@ def send(email_dest, name_file):
     encoders.encode_base64(payload)
     # Set text content
     #msg.set_content('Please see attached file')
-    payload.add_header('Content-Decomposition', 'attachment', 'filename=fileAttach')
+    payload.add_header('Content-Decomposition', 'attachment', filename=fileAttach)
     message.attach(payload)
 
     s = smtplib.SMTP('smtp.gmail.com: 587')
