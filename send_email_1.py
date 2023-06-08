@@ -42,8 +42,7 @@ def send(email_fsite, name_fsite):
     #!-------------------------------------------------------------------------------------------------------------
     #!2 - Constroi o email tipo MIME -- texto
     #!-------------------------------------------------------------------------------------------------------------
-    dicionario = null
-    df = pd.DataFrame(dicionario)
+    df = pd.DataFrame()
     df = df.drop(columns=['Descrição']) #tirando a coluna
     df = df.drop(columns=['Referências para recomendações, soluções e ferramentas']) #tirando a coluna
     df = df.drop(columns=['Configurações de softwares afetadas']) #tirando a coluna
