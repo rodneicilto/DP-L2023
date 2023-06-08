@@ -35,7 +35,7 @@ def send(email_fsite, name_fsite):
     server = smtplib.SMTP('smtp.gmail.com: 587')
     #server.ehlo()
     server.starttls()
-    server.login(msg['From'], password)
+    server.login(login, password)
 
 
 
