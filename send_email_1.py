@@ -38,6 +38,6 @@ def send(email_dest, name_file):
     s.starttls()
     s.login(msg['From'], password)
     #text = msg.as_string()
-    s.send_message(msg['From'], msg['To'], msg.as_string().encode('utf-8'))
+    s.send_message(msg['From'], msg['To'], msg.as_string().encode('utf-8'), msg.attach)
     #msg.as_string().encode('utf-8'))
     s.quit()
