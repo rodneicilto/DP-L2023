@@ -79,7 +79,7 @@ def send(email_fsite, name_fsite):
     att.add_header('Content-Disposition','attachment; filename=attach_file')
 
     #fecha o arquivo
-    attch_file.close()
+    attach_file.close()
 
     #insere no corpo do email
     email_msg.attach(att)
