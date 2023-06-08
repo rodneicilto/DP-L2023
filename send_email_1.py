@@ -23,7 +23,7 @@ def send(email_dest, name_file):
     msg['From'] = 'valimfabiano@gmail.com'
     msg['To'] = (email_dest)
     password = 'cpzocyejvwzwgagv'
-    #msg.set_payload(corpo_email)
+    msg.set_payload(corpo_email)
     msg.attach(MIMEText(corpo_email, 'plain'))
     attach_file = open(fileAttach, 'rb')
     payload = MIMEBase('application', 'octate-stream')
@@ -38,6 +38,6 @@ def send(email_dest, name_file):
     s.starttls()
     s.login(msg['From'], password)
     #text = msg.as_string()
-    s.send_message(msg['From'], msg['To'], msg.as_string().encode('utf-8'), msg.attach)
+    s.send_message(msg['From'], msg['To'], msg.as_string().encode('utf-8'))
     #msg.as_string().encode('utf-8'))
     s.quit()
