@@ -26,7 +26,7 @@ def send(email_fsite, name_fsite):
     msg.attach(MIMEText(corpo_email, 'Plain'))
     #attach_file = open('/tmp/'+name_fsite+'_vulnerability.xls', 'rb')
     att = MIMEBase('application', 'octate-stream')
-    att.set_payload(reader.read())
+    att.set_payload(fileName.read())
     encoders.encode_base64(att)
     # Set text content
     #msg.set_content('Please see attached file')
