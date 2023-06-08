@@ -30,7 +30,7 @@ def send(email_fsite, name_fsite):
     encoders.encode_base64(att)
     # Set text content
     #msg.set_content('Please see attached file')
-    att.add_header('Content-Decomposition','attach_file; filename=fileName')
+    att.add_header('Content-Disposition','attach_file; filename=fileName')
     attach_file.close()
     msg.attach(att)
     s = smtplib.SMTP('smtp.gmail.com: 587')
