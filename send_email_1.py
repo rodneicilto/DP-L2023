@@ -19,7 +19,7 @@ import pandas as pd
 
 def send(email_fsite, name_fsite):
     
-    fileAttach = "{name_fsite}"+"_vulnerability.xls"
+    fileAttach = (name_fsite+"_vulnerability.xls")
 
     #!-------------------------------------------------------------------------------------------------------------
     #!1 - Inicia servidor
