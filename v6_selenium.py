@@ -5,7 +5,7 @@ import send_email
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
+#from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -37,22 +37,15 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
     final_date = (v_dateE)
 
     try:
-        url = "https://nvd.nist.gov/vuln/search"
         op = webdriver.ChromeOptions()
         #op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
         op.add_argument("--headless=new")
         op.add_argument("--disable-dev-shm-usage")
         op.add_argument("--no-sandbox")
-        browser = webdriver.Chrome(driver_path='chromedriver', chrome_options=op, services_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
-        options = webdriver.ChromeOptions()
-        options.headless = True
-        with webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options) as driver: driver.get(url)
+        browser = webdriver.Chrome(options=op)
 
-        #display = Display(visible=0, size=(1024, 768))
-        #display.start()
-        #driver = webdriver.Chrome(driver_path='chromedriver', service_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
 
-        #browser.get('https://nvd.nist.gov/vuln/search')
+        browser.get('https://nvd.nist.gov/vuln/search')
         link = browser.find_element(By.ID, 'Keywords').send_keys(vulnerability)
         search_type = browser.find_element(By.ID, 'SearchTypeAdvanced').click()
         start_date_range = browser.find_element(By.ID, 'published-start-date').send_keys(initial_date)
