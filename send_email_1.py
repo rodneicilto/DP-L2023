@@ -23,16 +23,17 @@ def send(email_dest, name_file):
     msg['From'] = 'valimfabiano@gmail.com'
     msg['To'] = (email_dest)
     password = 'cpzocyejvwzwgagv'
-    msg.set_payload(corpo_email)
+    #msg.set_payload(corpo_email)
     msg.attach(MIMEText(corpo_email, 'plain'))
     attach_file = open(fileAttach, 'rb')
-    payload = MIMEBase('application', 'octate-stream')
-    payload.set_payload((attach_file).read())
-    encoders.encode_base64(payload)
+    att = MIMEBase('application', 'octate-stream')
+    att.set_payload(attach_file.read())
+    encoders.encode_base64(att)
     # Set text content
     #msg.set_content('Please see attached file')
-    payload.add_header('Content-Decomposition', 'attachment', filename=fileAttach)
-    msg.attach(payload)
+    att.add_header('Content-Decomposition', f'attachment; filename=fileAttach')
+    attch_file.close()
+    msg.attach(att)
 
     s = smtplib.SMTP('smtp.gmail.com: 587')
     s.starttls()
