@@ -19,7 +19,7 @@ def attach_file_to_email(name_file):
 def send(email_dest, name_file):
     bufferSize = 64 *1024
     reader = pd.read_excel('/tmp/'+name_file+'_vulnerability.xls')
-    body = reader.to.html()
+    body = reader.to_html()
     corpo_email = body
 
     msg = EmailMessage()
