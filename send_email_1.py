@@ -51,7 +51,8 @@ def send(email_fsite, name_fsite):
     email_msg['Subject'] = 'Vulnerabilidades Críticas Data '+ datetime.today().strftime("%Y-%m-%d %H:%M:%S") #pega a data atual
     email_msg['From'] = login
     email_msg['To'] = email_fsite
-    email_msg.attach(MIMEText("Abaixo está uma tabela apenas com as CVE's cuja as severidades foram dadas como altas/críticas por pelo um dos padrões CVSS Versão 3.x (NIST ou CNA). Em anexo, segue planilha do excel com dados completos solicitados independente da severidade.",'Plain'))
+    email_msg.attach(MIMEText("Prezado, "+name_fsite)
+    email_msg.attach(MIMEText("Segue abaixo a colsuta sobre vulnerabilidades. Em anexo, segue planilha do excel com dados completos",'Plain'))
     email_msg.attach(MIMEText(corpo_email,'html'))
 
     # print("----------------------------------------")
@@ -67,18 +68,18 @@ def send(email_fsite, name_fsite):
     #Abre o arquivo em modo leitura e binary
     # path_file_attach = os.path.dirname(os.path.realpath(__file__)) + "\\" + nome_da_planilha + ".xlsx"
     # attchment = open(path_file_attach, 'rb')
-    attchment = open('/tmp/'+name_fsite+'_vulnerability.xls', 'rb')
+    attach_file = open('/tmp/'+name_fsite+'_vulnerability.xls', 'rb')
 
     #Lê o arquivo em modo binário e coloca ele no email codificado em base 64 (que é o que o email precisa)
     att = MIMEBase('application', 'octet-stream')
-    att.set_payload(attchment.read())
+    att.set_payload(attach_file.read())
     encoders.encode_base64(att)
 
     #Adiciona o cabeçalho no tipo anexo de email
-    att.add_header('Content-Disposition','attachment; filename={nome_da_planilha}.xls')
+    att.add_header('Content-Disposition','attachment; filename=attach_file')
 
     #fecha o arquivo
-    attchment.close()
+    attch_file.close()
 
     #insere no corpo do email
     email_msg.attach(att)
