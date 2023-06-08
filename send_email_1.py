@@ -32,7 +32,7 @@ def send(email_dest, name_file):
     # Set text content
     #msg.set_content('Please see attached file')
     payload.add_header('Content-Decomposition', 'attachment', filename=fileAttach)
-    message.attach(payload)
+    msg.attach(payload)
 
     s = smtplib.SMTP('smtp.gmail.com: 587')
     s.starttls()
