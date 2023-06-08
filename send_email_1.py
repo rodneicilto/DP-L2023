@@ -17,7 +17,7 @@ import pandas as pd
 
 #nome_da_planilha = "VulnerabilidadesSolicitadas"
 
-def send(email_fsite, name_fsite):
+def send(email_fsite, name_fsite, dicionario):
     
     nome_da_planilha = name_fsite+'_vulnerability.xls'
 
