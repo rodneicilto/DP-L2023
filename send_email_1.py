@@ -37,7 +37,7 @@ def send(email_dest, name_file):
     s = smtplib.SMTP('smtp.gmail.com: 587')
     s.starttls()
     s.login(msg['From'], password)
-    text = message.as_string()
+    text = msg.as_string()
     s.send_message(msg['From'], msg['To'], text)
     #msg.as_string().encode('utf-8'))
     s.quit()
