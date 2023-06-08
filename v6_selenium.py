@@ -63,41 +63,38 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
                 vuln_severity = browser.find_element(By.ID, 'Cvss3NistCalculatorAnchor').text
 
             except:
-
                 vuln_severity = browser.find_element(By.ID, 'Cvss3NistCalculatorAnchorNA').text
-
-            vuln_reference = browser.find_element(By.CLASS_NAME, 'external').text
+                vuln_reference = browser.find_element(By.CLASS_NAME, 'external').text
 
             try:
-
                 vuln_affected = browser.find_element(By.TAG_NAME, 'b').text
 
             except:
                 vuln_affected = ('No Software was informed related to this issue')
-    
-            vuln_date = browser.find_element('xpath', '/html/body/main/div/div/div[2]/div[2]/table/tbody/tr/td/div/div[2]/div/span[1]').text
-            vuln_link = f'https://nvd.nist.gov/vuln/detail/{vuln_id}'
+                vuln_date = browser.find_element('xpath', '/html/body/main/div/div/div[2]/div[2]/table/tbody/tr/td/div/div[2]/div/span[1]').text
+                vuln_link = f'https://nvd.nist.gov/vuln/detail/{vuln_id}'
 
-        print('1parte-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
-        #print('')
-        #print('Data Returned......')
-        #print('Software/Sistem: ', vulnerability)
-        #print('CVE: ', vuln_id)
-        #print('Current Description: ', vuln_description)
-        #print('Severity: ', vuln_severity)
-        #print('References: ', vuln_reference)
-        #print('Affected Software: ', vuln_affected)
-        #print('NVD Date: ', vuln_date)
-        #print('Link to Issue: ', vuln_link)
-        #print('')
-        #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
+            print('1parte-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
+            #print('')
+            #print('Data Returned......')
+            #print('Software/Sistem: ', vulnerability)
+            #print('CVE: ', vuln_id)
+            #print('Current Description: ', vuln_description)
+            #print('Severity: ', vuln_severity)
+            #print('References: ', vuln_reference)
+            #print('Affected Software: ', vuln_affected)
+            #print('NVD Date: ', vuln_date)
+            #print('Link to Issue: ', vuln_link)
+            #print('')
+            #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
 
-        table = pd.DataFrame({'Software/System': [vulnerability], 'CVE': [vuln_id], 'Current Description': [vuln_description], 'Severity': [vuln_severity], 'References': [vuln_reference], 'Afected Software': [vuln_affected], 'NVD Date': [vuln_date], 'Link to Issue': [vuln_link] })
-        reader = pd.read_excel('/tmp/'+name_fsite+'_vnulnerability.xls')
-        writer = pd.ExcelWriter('/tmp/'+name_fsite+'_vulnerability.xls', engine='openpyxl', mode='a', if_sheet_exists="overlay")
-        table.to_excel(writer, index=False, header=False, startrow=len(reader) + 1)
-        writer.close()
-        browser.back()
+            table = pd.DataFrame({'Software/System': [vulnerability], 'CVE': [vuln_id], 'Current Description': [vuln_description], 'Severity': [vuln_severity], 'References': [vuln_reference], 'Afected Software': [vuln_affected], 'NVD Date': [vuln_date], 'Link to Issue': [vuln_link] })
+            reader = pd.read_excel('/tmp/'+name_fsite+'_vnulnerability.xls')
+            writer = pd.ExcelWriter('/tmp/'+name_fsite+'_vulnerability.xls', engine='openpyxl', mode='a', if_sheet_exists="overlay")
+            table.to_excel(writer, index=False, header=False, startrow=len(reader) + 1)
+            writer.close()
+            browser.back()
+        
         time.sleep(10)
         browser.quit()
         send_email.send(email_fsite, name_fsite)
