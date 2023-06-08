@@ -6,4 +6,5 @@ selenium==4.9.1
 requests==2.27.1
 openpyxl
 pyvirtualdisplay
+webdriver-manager=3.8.6
 
