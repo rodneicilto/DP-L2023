@@ -17,9 +17,8 @@ def send(email_fsite, name_fsite):
     body = reader.to_html()
     corpo_email = body
     fileName = (name_fsite+'_vulnerability.xls')
-
     msg = MIMEMultipart()
-    msg['Subject'] = 'Vulnerabilidades críticas solicitada por'+' '+name_fsite+' '+'--Contém anexo'
+    msg['Subject'] = 'Vulnerabilidades críticas solicitada por'+' '+name_fsite
     msg['From'] = 'valimfabiano@gmail.com'
     msg['To'] = (email_fsite)
     password = 'cpzocyejvwzwgagv'
@@ -34,11 +33,10 @@ def send(email_fsite, name_fsite):
     att.add_header('Content-Decomposition','attach_file; filename=fileName')
     attach_file.close()
     msg.attach(att)
-
     s = smtplib.SMTP('smtp.gmail.com: 587')
     s.starttls()
     s.login(msg['From'], password)
     #text = msg.as_string()
     s.send_message(msg.as_string().encode('utf-8'),msg['From'],msg['To'])
     #msg.as_string().encode('utf-8'))
-s.quit()
+    s.quit()
