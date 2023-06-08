@@ -16,7 +16,7 @@ def send(email_dest, name_file):
     reader = pd.read_excel('/tmp/'+name_file+'_vulnerability.xls')
     body = reader.to_html()
     corpo_email = body
-    #fileAttach = ('/tmp/'+name_file+'_vulnerability.xls')
+    fileName = (name_file+'_vulnerability.xls')
 
     msg = MIMEMultipart()
     msg['Subject'] = 'Vulnerabilidades críticas solicitada por'+' '+name_file+' '+'--Contém anexo'
@@ -31,7 +31,7 @@ def send(email_dest, name_file):
     encoders.encode_base64(att)
     # Set text content
     #msg.set_content('Please see attached file')
-    att.add_header('Content-Decomposition', f'attach_file; filename=fileAttach')
+    att.add_header('Content-Decomposition', f'attach_file; filename=fileName')
     attach_file.close()
     msg.attach(att)
 
@@ -39,6 +39,6 @@ def send(email_dest, name_file):
     s.starttls()
     s.login(msg['From'], password)
     #text = msg.as_string()
-    s.send_message(msg['From'], msg['To'], msg.as_string())
+    s.send_message(msg['From'],msg['To'],msg.as_string())
     #msg.as_string().encode('utf-8'))
     s.quit()
