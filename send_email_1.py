@@ -14,27 +14,28 @@ def send(email_dest, name_file):
     reader = pd.read_excel('/tmp/'+name_file+'_vulnerability.xls')
     body = reader.to_html()
     corpo_email = body
-    filename = name_file+'_vulnerability.xls'
+    fileAttach = ('/tmp/'+name_file+'_vulnerability.xls')
 
-    msg = EmailMessage()
+    msg = MIMEMultipart()
     msg['Subject'] = 'Vulnerabilidades críticas solicitada por'+' '+name_file+' '+'--Contém anexo'
     msg['From'] = 'valimfabiano@gmail.com'
     msg['To'] = (email_dest)
     password = 'cpzocyejvwzwgagv'
     msg.set_payload(corpo_email)
-    msg.attach(MIMEText(text))
-    """Attach a file identified by filename, to an email message"""
-    with open(filename, 'rb') as fp:
-        file_data = fp.read()
-        maintype, _, subtype = (mimetypes.guess_type(filename)[0] or 'application/octet-stream').partition("/tmp/")
-        msg.attach(file_data, maintype=maintype, subtype=subtype, filename=filename)
+    msg.attach(MIMEText(mail_content, 'plain'))
+    attach_file = open(fileAttach, 'rb')
+    payload = MIMEBase('application', 'octate-stream')
+    payload.set_payload((attach_file).read())
+    encoders.encode_base64(payload)
     # Set text content
     msg.set_content('Please see attached file')
-    # Attach files
-    attach_file_to_email(msg, name_file+'_vulnerability.xls')
+    payload.add_header('Content-Decomposition', 'attachment', 'filename=fileAttach')
+    message.attach(payload)
 
     s = smtplib.SMTP('smtp.gmail.com: 587')
     s.starttls()
     s.login(msg['From'], password)
-    s.send_message(msg['From'], msg['To'], msg.as_string().encode('utf-8'))
+    text = message.as_string()
+    s.send_message(msg['From'], msg['To'], text)
+    #msg.as_string().encode('utf-8'))
     s.quit()
