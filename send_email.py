@@ -24,7 +24,7 @@ def send(email_dest,name_file):
     msg.set_payload(corpo_email)
     
     msg.attach(MIMEText(body, 'plain'))
-    filename = (name_file+_'vulnerability.xls')
+    filename = name_file+_'vulnerability.xls'
     attachment = open("/tmp/")
 
     p = MIMEBase('application', 'octet-stream')
