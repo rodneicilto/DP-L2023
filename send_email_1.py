@@ -30,7 +30,7 @@ def send(email_dest, name_file):
     payload.set_payload((attach_file).read())
     encoders.encode_base64(payload)
     # Set text content
-    msg.set_content('Please see attached file')
+    #msg.set_content('Please see attached file')
     payload.add_header('Content-Decomposition', 'attachment', 'filename=fileAttach')
     message.attach(payload)
 
