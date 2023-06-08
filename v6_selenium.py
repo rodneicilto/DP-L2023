@@ -20,7 +20,7 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
     #if os.path.exists("Vulnerability.xls"):
         #os.remove("Vulnerability.xls")
     table = pd.DataFrame({'Software/System': [], 'CVE': [], 'Current Description': [], 'Severity': [], 'References': [], 'Afected Software': [], 'NVD Date': [], 'Link to Issue': [] })
-    spreadsheet_writer = pd.ExcelWriter('/tmp/'+name_fsite+'vulnerability.xls', engine='xlsxwriter')
+    spreadsheet_writer = pd.ExcelWriter('/tmp/'+name_fsite+'_vulnerability.xls', engine='xlsxwriter')
     table.to_excel(spreadsheet_writer, index=False)
     spreadsheet_writer.close()
     #else:
@@ -78,7 +78,7 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
             vuln_date = browser.find_element('xpath', '/html/body/main/div/div/div[2]/div[2]/table/tbody/tr/td/div/div[2]/div/span[1]').text
             vuln_link = f'https://nvd.nist.gov/vuln/detail/{vuln_id}'
 
-        #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
+        print('1parte-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
         #print('')
         #print('Data Returned......')
         #print('Software/Sistem: ', vulnerability)
@@ -92,18 +92,18 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
         #print('')
         #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
 
-            table = pd.DataFrame({'Software/System': [vulnerability], 'CVE': [vuln_id], 'Current Description': [vuln_description], 'Severity': [vuln_severity], 'References': [vuln_reference], 'Afected Software': [vuln_affected], 'NVD Date': [vuln_date], 'Link to Issue': [vuln_link] })
-            reader = pd.read_excel('/tmp/'+name_fsite+'vnulnerability.xls')
-            writer = pd.ExcelWriter('/tmp/'+name_fsite+'vulnerability.xls', engine='openpyxl', mode='a', if_sheet_exists="overlay")
-            table.to_excel(writer, index=False, header=False, startrow=len(reader) + 1)
-            writer.close()
-            browser.back()
+        table = pd.DataFrame({'Software/System': [vulnerability], 'CVE': [vuln_id], 'Current Description': [vuln_description], 'Severity': [vuln_severity], 'References': [vuln_reference], 'Afected Software': [vuln_affected], 'NVD Date': [vuln_date], 'Link to Issue': [vuln_link] })
+        reader = pd.read_excel('/tmp/'+name_fsite+'_vnulnerability.xls')
+        writer = pd.ExcelWriter('/tmp/'+name_fsite+'_vulnerability.xls', engine='openpyxl', mode='a', if_sheet_exists="overlay")
+        table.to_excel(writer, index=False, header=False, startrow=len(reader) + 1)
+        writer.close()
+        browser.back()
         time.sleep(10)
         browser.quit()
         send_email.send(email_fsite, name_fsite)
 
     except:
-        print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
+        print('2parte-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
         #print('')
         #print('No Data was Found with parameters provided')
         #print('Topic NOT Found: ', vulnerability)
