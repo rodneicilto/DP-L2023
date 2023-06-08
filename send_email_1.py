@@ -31,7 +31,7 @@ def send(email_dest, name_file):
     encoders.encode_base64(att)
     # Set text content
     #msg.set_content('Please see attached file')
-    att.add_header('Content-Decomposition', f'attachment; filename=fileAttach')
+    att.add_header('Content-Decomposition', f'attach_file; filename=fileAttach')
     attach_file.close()
     msg.attach(att)
 
