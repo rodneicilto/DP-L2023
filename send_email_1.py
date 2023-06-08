@@ -14,9 +14,6 @@ def attach_file_to_email(name_file):
         maintype, _, subtype = (mimetypes.guess_type(filename)[0] or 'application/octet-stream').partition("/tmp/")
         email.add_attachment(file_data, maintype=maintype, subtype=subtype, filename=filename)
 
-# Attach files
-attach_file_to_email(msg, name_file+'_vulnerability.xls')
-
 def send(email_dest, name_file):
     bufferSize = 64 *1024
     reader = pd.read_excel('/tmp/'+name_file+'_vulnerability.xls')
@@ -31,6 +28,8 @@ def send(email_dest, name_file):
     msg.set_payload(corpo_email)
     # Set text content
     msg.set_content('Please see attached file')
+    # Attach files
+    attach_file_to_email(msg, name_file+'_vulnerability.xls')
 
     s = smtplib.SMTP('smtp.gmail.com: 587')
     s.starttls()
