@@ -76,7 +76,7 @@ def send(email_fsite, name_fsite):
     encoders.encode_base64(att)
 
     #Adiciona o cabeçalho no tipo anexo de email
-    att.add_header('Content-Disposition','attachment; filename=attach_file')
+    att.add_header('Content-Disposition','attachment;' filename=attach_file)
 
     #fecha o arquivo
     attach_file.close()
