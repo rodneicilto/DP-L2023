@@ -16,7 +16,7 @@ def send(email_dest, name_file):
     reader = pd.read_excel('/tmp/'+name_file+'_vulnerability.xls')
     body = reader.to_html()
     corpo_email = body
-    fileAttach = ('/tmp/'+name_file+'_vulnerability.xls')
+    #fileAttach = ('/tmp/'+name_file+'_vulnerability.xls')
 
     msg = MIMEMultipart()
     msg['Subject'] = 'Vulnerabilidades críticas solicitada por'+' '+name_file+' '+'--Contém anexo'
@@ -24,8 +24,8 @@ def send(email_dest, name_file):
     msg['To'] = (email_dest)
     password = 'cpzocyejvwzwgagv'
     #msg.set_payload(corpo_email)
-    msg.attach(MIMEText(corpo_email, 'plain'))
-    attach_file = open(fileAttach, 'rb')
+    msg.attach(MIMEText(corpo_email, 'Plain'))
+    attach_file = open('/tmp/'+name_file+'_vulnerability.xls', 'rb')
     att = MIMEBase('application', 'octate-stream')
     att.set_payload(attach_file.read())
     encoders.encode_base64(att)
