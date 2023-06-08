@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
+import os
 import smtplib
 import mimetypes
+import pandas as pd
 from email.message import EmailMessage
 # Create message and set text content
 from email import encoders
