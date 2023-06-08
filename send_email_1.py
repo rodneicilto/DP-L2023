@@ -43,12 +43,12 @@ def send(email_fsite, name_fsite):
     #!2 - Constroi o email tipo MIME -- texto
     #!-------------------------------------------------------------------------------------------------------------
     df = pd.DataFrame()
-    df = df.drop(columns=['Descrição']) #tirando a coluna
-    df = df.drop(columns=['Referências para recomendações, soluções e ferramentas']) #tirando a coluna
-    df = df.drop(columns=['Configurações de softwares afetadas']) #tirando a coluna
+    df = df.drop(columns=['Current Description']) #tirando a coluna
+    df = df.drop(columns=['References']) #tirando a coluna
+    df = df.drop(columns=['Afected Software']) #tirando a coluna
 
     #todo aqui embaixo, neste grupo, eu verifico quais itens da severidade possuem valor menor q 7 e excluo suas linhas do q ira no corpo do email
-    dicionario_severidades = df.to_dict()['Severidade']
+    dicionario_severidades = df.to_dict()['Severity']
     indices_para_excluir = []
     indice = 0
     for i in list(dicionario_severidades.values()):
