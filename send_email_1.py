@@ -11,21 +11,21 @@ from email.mime.text import MIMEText
 from email import encoders
 from datetime import datetime
 
-def send(email_dest, name_file):
+def send(email_fsite, name_fsite):
     bufferSize = 64 *1024
-    reader = pd.read_excel('/tmp/'+name_file+'_vulnerability.xls')
+    reader = pd.read_excel('/tmp/'+name_fsite+'_vulnerability.xls')
     body = reader.to_html()
     corpo_email = body
-    fileName = (name_file+'_vulnerability.xls')
+    fileName = (name_fsite+'_vulnerability.xls')
 
     msg = MIMEMultipart()
-    msg['Subject'] = 'Vulnerabilidades críticas solicitada por'+' '+name_file+' '+'--Contém anexo'
+    msg['Subject'] = 'Vulnerabilidades críticas solicitada por'+' '+name_fsite+' '+'--Contém anexo'
     msg['From'] = 'valimfabiano@gmail.com'
-    msg['To'] = (email_dest)
+    msg['To'] = (email_fsite)
     password = 'cpzocyejvwzwgagv'
     #msg.set_payload(corpo_email)
     msg.attach(MIMEText(corpo_email, 'Plain'))
-    attach_file = open('/tmp/'+name_file+'_vulnerability.xls', 'rb')
+    attach_file = open('/tmp/'+name_fsite+'_vulnerability.xls', 'rb')
     att = MIMEBase('application', 'octate-stream')
     att.set_payload(attach_file.read())
     encoders.encode_base64(att)
