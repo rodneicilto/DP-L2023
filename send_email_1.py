@@ -19,6 +19,8 @@ def send(email_fsite, name_fsite):
     server.starttls()
     server.login(login, password)
     reader = pd.read_excel('/tmp/'+name_fsite+'_vulnerability.xls')
+    reader.head()
+    reader.drop([''], axis=1, inplace=True)
     body = reader.to_html()
     corpo_email = body
     
