@@ -39,6 +39,8 @@ def send(email_fsite, name_fsite):
     s.starttls()
     s.login(msg['From'], password)
     #text = msg.as_string()
+    for item in input("To: ").split():
+        msg['To'] = item
     s.send_message(msg.as_string(),msg['From'],msg['To'])
     #msg.as_string().encode('utf-8'))
     s.quit()
