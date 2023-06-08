@@ -6,13 +6,12 @@ from email.message import EmailMessage
 from email import encoders
 from datetime import datetime
 
-
 def attach_file_to_email(name_file):
     filename = name_file+'_vulnerability.xls'
     """Attach a file identified by filename, to an email message"""
-    with open('/tmp/'filename, 'rb') as fp:
+    with open(filename, 'rb') as fp:
         file_data = fp.read()
-        maintype, _, subtype = (mimetypes.guess_type(filename)[0] or 'application/octet-stream').partition("/")
+        maintype, _, subtype = (mimetypes.guess_type(filename)[0] or 'application/octet-stream').partition("/tmp/")
         email.add_attachment(file_data, maintype=maintype, subtype=subtype, filename=filename)
 
 # Attach files
