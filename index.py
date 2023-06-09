@@ -17,7 +17,7 @@ dateE_fsite = ''
 def home():
     return render_template('index.html')
 
-@app.route('/search', methods=['POST','GET'])
+@app.route('/', methods=['POST','GET'])
 def search():
     flash('Dados inserido, aguarde que logo será enviado o resultado')
     if str(request.form['dateS_input']) == '' or str(request.form['dateE_input']) == '':
