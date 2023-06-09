@@ -44,7 +44,6 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
         #op.add_argument("--no-sandbox")
         browser = webdriver.Chrome(options=op)
 
-
         browser.get('https://nvd.nist.gov/vuln/search')
         link = browser.find_element(By.ID, 'Keywords').send_keys(vulnerability)
         search_type = browser.find_element(By.ID, 'SearchTypeAdvanced').click()
@@ -94,19 +93,18 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
             table.to_excel(writer, index=False, header=False, startrow=len(reader) + 1)
             writer.close()
             browser.back()
-        
         time.sleep(10)
         browser.quit()
         send_email_1.send(email_fsite, name_fsite)
 
-    except:
-        print('2parte-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
+    #except:
+        #print('2parte-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
         #print('')
         #print('No Data was Found with parameters provided')
         #print('Topic NOT Found: ', vulnerability)
         #print('')
         #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
-        send_email_1.send(email_fsite, name_fsite)
+        #send_email_1.send(email_fsite, name_fsite)
         
 #def get_data(v_sw_fsite = str, v_dateS_fsite = str, v_dateE_fsite = str):
 #    read = []
