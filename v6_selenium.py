@@ -16,7 +16,7 @@ import re
 import json
 
 def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
-    
+                
     #if os.path.exists("Vulnerability.xls"):
     #os.remove("Vulnerability.xls")
     table = pd.DataFrame({'Software/System': [], 'CVE': [], 'Current Description': [], 'Severity': [], 'References': [], 'Afected Software': [], 'NVD Date': [], 'Link to Issue': [] })
@@ -39,7 +39,7 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
     try:
         op = webdriver.ChromeOptions()
         #op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-        #op.add_argument("--headless=new")
+        op.add_argument("--headless=new")
         #op.add_argument("--disable-dev-shm-usage")
         #op.add_argument("--no-sandbox")
         browser = webdriver.Chrome(options=op)
@@ -86,7 +86,6 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
             #print('Link to Issue: ', vuln_link)
             #print('')
             #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
-
             table = pd.DataFrame({'Software/System': [vulnerability], 'CVE': [vuln_id], 'Current Description': [vuln_description], 'Severity': [vuln_severity], 'References': [vuln_reference], 'Afected Software': [vuln_affected], 'NVD Date': [vuln_date], 'Link to Issue': [vuln_link] })
             reader = pd.read_excel('/tmp/'+name_fsite+'_vulnerability.xls')
             writer = pd.ExcelWriter('/tmp/'+name_fsite+'_vulnerability.xls', engine='openpyxl', mode='a', if_sheet_exists="overlay")
