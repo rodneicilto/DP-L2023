@@ -10,7 +10,9 @@ app.secret_key="asd"
 name_fsite = ''
 sof_fsite = ''
 email_fsite = ''
+dateS_fsite_T = ''
 dateS_fsite = ''
+dateE_fsite_T = ''
 dateE_fsite = ''
 
 @app.route('/')
@@ -27,9 +29,11 @@ def search():
     name_fsite = str(request.form['name_input'])
     email_fsite = str(request.form['email_input'])
     sof_fsite = str(request.form['sof_input'])
+    dateS_fsite_T = srt(request.form['dateS_input'])
+    dateE_fsite_T = str(request.form['dateE_input'])
     replace_fsite = str(request.form['dateS_input']).split("-")
     dateS_fsite = replace_fsite[1] + '/' + replace_fsite[2] + '/' + replace_fsite[0]
-    replace_fsite_E = dateS_input+timedate(days=dateE_input)
+    replace_fsite_E = dateS_fsite_T+timedate(days=dateE_fsite_T)
     print (replace_fsite_E)
     #replace_fsite = str(request.form['dateE_input']).split("-")
     dateE_fsite = replace_fsite_E[1] + '/' + replace_fsite_E[2] + '/' + replace_fsite_E[0]
