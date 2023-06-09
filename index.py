@@ -43,7 +43,8 @@ def search():
     replace_fsite_E = (date_object_S + timedelta(days=dateE_fsite_T))
     replace_fsite = str(request.form['dateS_input']).split("-")
     dateS_fsite = replace_fsite[1] + '/' + replace_fsite[2] + '/' + replace_fsite[0]
-    
+   
+    print (dateS_fsite)
     print (replace_fsite_E)
     #replace_fsite = str(request.form['dateE_input']).split("-")
     #dateE_fsite = replace_fsite_E[1] + '/' + replace_fsite_E[2] + '/' + replace_fsite_E[0]
