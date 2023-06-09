@@ -14,7 +14,10 @@ Pre-requisitos (Linux Debian OS)
 - Instalação do npm
     - apt install npm
 	
-Use o arquivo requirements.txt
+- Use o arquivo requirements.txt
+- Efetue a configuração do email dentro do arquivo send_mail.py
+    - Efetuei a configuração das variáveis conforme sua credencias e configuração do email:
+    - variáveis - password = '', login = '', no-reply = '', server = '' .
 
 Instalação e configuração
 
