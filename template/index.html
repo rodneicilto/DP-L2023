@@ -85,6 +85,13 @@
       .bd-mode-toggle {
         z-index: 1500;
       }
+      div#loading {
+      width: 35px;
+      height: 35px;
+      display: none;
+      background: url(/static/img/coffee-loading.gif) no-repeat;
+      cursor: wait;
+      }
     </style>
     <script type="text/javascript">
     window.onload=function(){//from ww  w . j  a  va2s. c  o  m
@@ -92,6 +99,12 @@
 	document.getElementsByName("dateS_input")[0].setAttribute('max', today);
 	document.getElementsByName("dateE_input")[0].setAttribute('max', today);
     }</script>
+    <script type="text/javascript">// <![CDATA[
+        function loading(){
+            $("#loading").show();
+            $("#content").hide();       
+        }// ]]></script>
+
     
     <!-- Custom styles for this template -->
     <link href="/static/css/heroes.css" rel="stylesheet">
@@ -170,7 +183,8 @@
 
   <div class="container col-xl-10 col-xxl-8 px-4 py-5">
     <div class="row align-items-center g-lg-5 py-5">
-      <div class="col-lg-7 text-center text-lg-start">
+      <div class="col-lg-7 text-center text-lg-start" id="loading">
+      
         <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Vulnerabilidades por email</h1>
         <p class="col-lg-10 fs-4">Cadastre seu email indicando uma vulnerabilitade e receba informação por email</p>
       </div>
@@ -211,7 +225,7 @@
               Digite uma data final valida.
             </div>
           </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Cadastrar</button>
+          <button class="w-100 btn btn-lg btn-primary" type="submit" onClick="loading();">Cadastrar</button>
           <hr class="my-4">
           <small class="text-body-secondary">Clique no botão para cadastrar a vulnerabilitade</small>
         </form>
