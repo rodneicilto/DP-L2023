@@ -46,7 +46,7 @@ def search():
     
     print (replace_fsite_E)
     #replace_fsite = str(request.form['dateE_input']).split("-")
-    dateE_fsite = replace_fsite_E[1] + '/' + replace_fsite_E[2] + '/' + replace_fsite_E[0]
+    #dateE_fsite = replace_fsite_E[1] + '/' + replace_fsite_E[2] + '/' + replace_fsite_E[0]
     #list_email = []
     #list_email.append(email_fsite)
     #list_email = send_email.send(email_fsite, name_fsite)
