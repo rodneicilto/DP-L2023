@@ -30,12 +30,19 @@ def search():
     name_fsite = str(request.form['name_input'])
     email_fsite = str(request.form['email_input'])
     sof_fsite = str(request.form['sof_input'])
-    dateS_fsite_T = request.form['dateS_input']
-    dateE_fsite_T = request.form['dateE_input']
+    
+    dateS_fsite_T = str(request.form['dateS_input'])
+    replace_Test = dateS_fsite_T
+    date_object_S = datetime.strptime(replace_Test, %m-%d-%Y).date()
+    
+    #dateE_fsite_T = str(request.form['dateE_input'])
+    #replace_Test = dateS_fsite_T
+    #date_object_E = datetime.strptime(replace_Test, %m-%d-%Y).date()
 
+    replace_fsite_E = (date_object_S + timedelta(days=dateE_fsite_T))
     replace_fsite = str(request.form['dateS_input']).split("-")
     dateS_fsite = replace_fsite[1] + '/' + replace_fsite[2] + '/' + replace_fsite[0]
-    replace_fsite_E = (dateS_fsite_T + timedelta(days=dateE_fsite_T))
+    
     print (replace_fsite_E)
     #replace_fsite = str(request.form['dateE_input']).split("-")
     dateE_fsite = replace_fsite_E[1] + '/' + replace_fsite_E[2] + '/' + replace_fsite_E[0]
