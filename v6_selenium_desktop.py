@@ -38,11 +38,11 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
 
     try:
         op = webdriver.ChromeOptions()
-        op.binary_location = os.environ.get("CHROME_BIN")
+        #op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
         op.add_argument("--headless=new")
-        op.add_argument("--disable-dev-shm-usage")
-        op.add_argument("--no-sandbox")
-        browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH", options=op)
+        #op.add_argument("--disable-dev-shm-usage")
+        #op.add_argument("--no-sandbox")
+        browser = webdriver.Chrome(options=op)
         
         browser.get('https://nvd.nist.gov/vuln/search')
         link = browser.find_element(By.ID, 'Keywords').send_keys(vulnerability)
