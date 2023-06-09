@@ -1,7 +1,7 @@
 import os
 import time
 import pandas as pd
-import send_email_1
+import send_email
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -95,7 +95,7 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
             browser.back()
         time.sleep(10)
         browser.quit()
-        send_email_1.send(email_fsite, name_fsite)
+        send_email.send(email_fsite, name_fsite)
 
     except:
         #print('2parte-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
@@ -104,4 +104,4 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
         #print('Topic NOT Found: ', vulnerability)
         #print('')
         #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
-        send_email_1.send(email_fsite, name_fsite)
+        send_email.send(email_fsite, name_fsite)
