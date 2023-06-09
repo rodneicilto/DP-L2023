@@ -38,7 +38,6 @@ def search():
     #dateE_fsite_T = str(request.form['dateE_input'])
     #replace_Test = dateS_fsite_T
     #date_object_E = datetime.strptime(replace_Test, %m-%d-%Y).date()
-    timeDelta = (time
 
     replace_fsite_E = (date_object_S + timedelta(days=dateE_fsite_T))
     replace_fsite = str(request.form['dateS_input']).split("-")
