@@ -86,7 +86,11 @@
         z-index: 1500;
       }
     </style>
-
+    <script type="text/javascript">
+    window.onload=function(){//from ww  w . j  a  va2s. c  o  m
+	var today = new Date().toISOString().split('T')[0];
+	document.getElementsByName("dateS_input")[0].setAttribute('max', today);
+    }</script>
     
     <!-- Custom styles for this template -->
     <link href="/static/css/heroes.css" rel="stylesheet">
