@@ -105,8 +105,3 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
         #print('')
         #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
         #send_email_1.send(email_fsite, name_fsite)
-        
-#def get_data(v_sw_fsite = str, v_dateS_fsite = str, v_dateE_fsite = str):
-#    read = []
-#    read = web_scraping(v_sw_fsite, v_dateS_fsite, vdateE_fsite)
-#    return read
