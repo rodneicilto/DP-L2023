@@ -42,7 +42,7 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
         op.add_argument("--headless")
         op.add_argument("--disable-dev-shm-usage")
         op.add_argument("--no-sandbox")
-        browser = webdriver.Chrome(executable_path=os.environ.get("/opt/google/chrome/google_chrome", chrome_options=op)
+        browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH", chrome_options=op))
         
         browser.get('https://nvd.nist.gov/vuln/search/')
         link = browser.find_element(By.ID, 'Keywords').send_keys(vulnerability)
