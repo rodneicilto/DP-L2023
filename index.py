@@ -33,7 +33,7 @@ def search():
     
     dateS_fsite_T = str(request.form['dateS_input'])
     replace_Test = dateS_fsite_T
-    date_object_S = datetime.strptime(replace_Test, %m-%d-%Y).date()
+    date_object_S = datetime.strptime(replace_Test, '%m-%d-%Y').date()
     
     #dateE_fsite_T = str(request.form['dateE_input'])
     #replace_Test = dateS_fsite_T
