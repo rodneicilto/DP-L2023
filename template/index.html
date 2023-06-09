@@ -213,11 +213,8 @@
 	  <fieldset>
           <legend>Escolha o peiodo de consulta:</legend>
           <div class="form-floating mb-3">
-            <div>
               <input type="radio" name="dateE_input" class="form-control" id="floatingPassword" value="30" checked>
 	      <label for="dateE_input"> 30</label>
-            </div>
-            <div>
               <input type="radio" name="dateE_input" class="form-control" id="floatingPassword" value="60">
 	      <label for="dateE_input"> 60</label>
             </div>
@@ -228,6 +225,18 @@
               Digite uma data final valida.
             </div> -->
           </div>
+                    <div class="form-floating mb-3">
+                            <input type="radio" name="dateE_input" class="form-control" id="floatingPassword" value="60">
+	      <label for="dateE_input"> 60</label>
+            </div>
+            <!--
+            <input type="date" name="dateE_input" class="form-control" id="floatingPassword" placeholder="Data Final" min="2001-01-01" required>
+            <label for="floatingPassword">Data Final</label>
+            <div class="invalid-feedback">
+              Digite uma data final valida.
+            </div> -->
+          </div>
+          </fieldset>
           <button class="w-100 btn btn-lg btn-primary" type="submit" onClick="loading();">Cadastrar</button>
           <hr class="my-4">
           <small class="text-body-secondary">Clique no botão para cadastrar a vulnerabilitade</small>
