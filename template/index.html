@@ -8,12 +8,8 @@
     <meta name="author" content="Rodnei" >
     <meta name="generator" content="Bluefish 2.2.12" >
     <title>Facens Desafio Python</title>
-
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/heroes/">
-
-    
-
-    
 
 <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 
@@ -90,7 +86,12 @@
         z-index: 1500;
       }
     </style>
-
+    <script type="text/javascript">
+    window.onload=function(){//from ww  w . j  a  va2s. c  o  m
+	var today = new Date().toISOString().split('T')[0];
+	document.getElementsByName("dateS_input")[0].setAttribute('max', today);
+	document.getElementsByName("dateE_input")[0].setAttribute('max', today);
+    }</script>
     
     <!-- Custom styles for this template -->
     <link href="/static/css/heroes.css" rel="stylesheet">
@@ -167,14 +168,53 @@
   
   <h1 class="visually-hidden">Heroes examples</h1>
 
-  <div class="px-4 py-5 my-5 text-center">
-	  <!--<img class="d-block mx-auto mb-4" src="/static/img/bootstrap-logo.svg" alt="" width="72" height="57">-->
-    <h1 class="display-5 fw-bold text-body-emphasis">Cadastro de email com vulnerabilidades</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">Esta função se apçlica para o cadastro.................</p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Button 1</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Button 2</button>
+  <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Vulnerabilidades por email</h1>
+        <p class="col-lg-10 fs-4">Cadastre seu email indicando uma vulnerabilitade e receba informação por email</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form action="/search" method="post" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+          <div class="form-floating mb-3">
+            <input type="firstName" name="name_input" class="form-control" id="floatingInput" placeholder="" value="" required>
+            <label for="floatingInput">Digite seu nome</label>
+            <div class="invalid-feedback">
+              Necessário preencher o campo.
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" name="email_input" class="form-control" id="floatingInput" placeholder="name@example.com" value="" required>
+            <label for="floatingInput">Digite seu email</label>
+            <div class="invalid-feedback">
+              Digite um email valido.
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+	    <input type="firstName" name="sof_input" class="form-control" id="floatingInput" placeholder="" value="" required>
+            <label for="floatingInput">Digite o software</label>
+            <div class="invalid-feedback">
+              Necessário preencher o campo.
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="date" name="dateS_input" class="form-control" id="floatingPassword" placeholder="Data inicial" min="2001-01-01" max="today" required>
+            <label for="floatingPassword">Data Inicial</label>
+            <div class="invalid-feedback">
+              Digite uma data inicial valida.
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="date" name="dateE_input" class="form-control" id="floatingPassword" placeholder="Data Final" min="2001-01-01" required>
+            <label for="floatingPassword">Data Final</label>
+            <div class="invalid-feedback">
+              Digite uma data final valida.
+            </div>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Cadastrar</button>
+          <hr class="my-4">
+          <small class="text-body-secondary">Clique no botão para cadastrar a vulnerabilitade</small>
+        </form>
       </div>
     </div>
   </div>

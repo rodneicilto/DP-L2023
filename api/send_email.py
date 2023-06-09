@@ -1,48 +1,24 @@
 import smtplib
-import ssl
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import pandas as pd
+import email.message
 
-sender_email = "rodnei.cilto@gmail.com"
-receiver_email = "valimfabiano@gmail.com"
-password = input("Type your password and press enter:")
+def send(): 
+    reader = pd.read_excel('Vulnerability.xls')
+    body = reader.to_html()
+    corpo_email = body
 
-message = MIMEMultipart("alternative")
-message["Subject"] = "multipart test"
-message["From"] = sender_email
-message["To"] = receiver_email
+    msg = email.message.Message()
+    msg['Subject'] = "Vulnerabilidades Críticas Data"
+    msg['From'] = 'valimfabiano@gmail.com'
+    msg['To'] = 'valimfabiano@outlook.com'
+    password = 'cpzocyejvwzwgagv' 
+    msg.add_header('Content-Type', 'text/html')
+    msg.set_payload(corpo_email )
 
-# Create the plain-text and HTML version of your message
-text = """\
-Hi,
-How are you?
-Real Python has many great tutorials:
-www.realpython.com"""
-html = """\
-<html>
-  <body>
-    <p>Hi,<br>
-       How are you?<br>
-       <a href="http://www.realpython.com">Real Python</a> 
-       has many great tutorials.
-    </p>
-  </body>
-</html>
-"""
-
-# Turn these into plain/html MIMEText objects
-part1 = MIMEText(text, "plain")
-part2 = MIMEText(html, "html")
-
-# Add HTML/plain-text parts to MIMEMultipart message
-# The email client will try to render the last part first
-message.attach(part1)
-message.attach(part2)
-
-# Create secure connection with server and send email
-context = ssl.create_default_context()
-with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-    server.login(sender_email, password)
-    server.sendmail(
-        sender_email, receiver_email, message.as_string()
-    )
+    s = smtplib.SMTP('smtp.gmail.com: 587')
+    s.starttls()
+    # Login Credentials for sending the mail
+    s.login(msg['From'], password)
+    s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
+    print('Email enviado')
+    
