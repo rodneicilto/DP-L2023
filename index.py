@@ -45,9 +45,7 @@ def search():
     dateS_fsite = replace_fsite[1] + '/' + replace_fsite[2] + '/' + replace_fsite[0]
     replace_fconvert = str(replace_fsite_E).split("-")
     dateE_fsite = replace_fconvert[1] + '/' + replace_fconvert[2] + '/' + replace_fconvert[0]
-    print (dateS_fsite)
-    print (replace_fsite_E)
-    print (dateE_fsite)
+    
     #replace_fsite = str(request.form['dateE_input']).split("-")
     #dateE_fsite = replace_fsite_E[1] + '/' + replace_fsite_E[2] + '/' + replace_fsite_E[0]
     #list_email = []
