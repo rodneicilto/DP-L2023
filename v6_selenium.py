@@ -97,7 +97,7 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
         browser.quit()
         send_email_1.send(email_fsite, name_fsite)
 
-    #except:
+    except:
         #print('2parte-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
         #print('')
         #print('No Data was Found with parameters provided')
