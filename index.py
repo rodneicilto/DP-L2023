@@ -30,7 +30,7 @@ def search():
     replace_fsite = str(request.form['dateS_input']).split("-")
     dateS_fsite = replace_fsite[1] + '/' + replace_fsite[2] + '/' + replace_fsite[0]
     replace_fsite_E = dateS_input+timedate(days=dateE_input)
-    print replace_fsite
+    print replace_fsite_E
     #replace_fsite = str(request.form['dateE_input']).split("-")
     dateE_fsite = replace_fsite_E[1] + '/' + replace_fsite_E[2] + '/' + replace_fsite_E[0]
     #list_email = []
