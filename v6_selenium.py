@@ -1,7 +1,7 @@
 import os
 import time
 import pandas as pd
-import send_email_1
+import send_email
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -38,13 +38,13 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
 
     try:
         op = webdriver.ChromeOptions()
-        #op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-        op.add_argument("--headless=new")
-        #op.add_argument("--disable-dev-shm-usage")
-        #op.add_argument("--no-sandbox")
-        browser = webdriver.Chrome(options=op)
+        #op.binary_location = os.environ.get("CHROME_BIN_GOOGLE")
+        op.add_argument("--headless")
+        op.add_argument("--disable-dev-shm-usage")
+        op.add_argument("--no-sandbox")
+        browser = webdriver.Chrome(chrome_options=op)
         
-        browser.get('https://nvd.nist.gov/vuln/search')
+        browser.get('https://nvd.nist.gov/vuln/search/')
         link = browser.find_element(By.ID, 'Keywords').send_keys(vulnerability)
         search_type = browser.find_element(By.ID, 'SearchTypeAdvanced').click()
         start_date_range = browser.find_element(By.ID, 'published-start-date').send_keys(initial_date)
@@ -95,7 +95,7 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
             browser.back()
         time.sleep(10)
         browser.quit()
-        send_email_1.send(email_fsite, name_fsite)
+        send_email.send(email_fsite, name_fsite)
 
     except:
         #print('2parte-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
@@ -104,4 +104,4 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
         #print('Topic NOT Found: ', vulnerability)
         #print('')
         #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
-        send_email_1.send(email_fsite, name_fsite)
+        send_email.send(email_fsite, name_fsite)

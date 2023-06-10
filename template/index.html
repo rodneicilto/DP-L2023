@@ -92,6 +92,12 @@
 	document.getElementsByName("dateS_input")[0].setAttribute('max', today);
 	document.getElementsByName("dateE_input")[0].setAttribute('max', today);
     }</script>
+    <script type="text/javascript">// <![CDATA[
+        function loading(){
+            $("#loading").show();
+            $("#content").hide();       
+        }// ]]></script>
+
     
     <!-- Custom styles for this template -->
     <link href="/static/css/heroes.css" rel="stylesheet">
@@ -205,13 +211,30 @@
             </div>
           </div>
           <div class="form-floating mb-3">
+          <fieldset>
+          <legend class="form-control" id="float:ingPassword">Escolha o período da consulta:</legend>
+          <div class="d-grid gap-2 d-sm-flex"> <!--d-grid gap-2 d-sm-flex mb-5-->
+            <input class="px-4" type="radio" name="dateE_input"  value="30" checked>
+	    <label for="dateE_input"> 30</label>
+              
+            <input class="px-4" type="radio" name="dateE_input"  value="60">
+	    <label for="dateE_input"> 60</label>
+
+            <input class="px-4" type="radio" name="dateE_input"  value="90">
+	    <label for="dateE_input"> 90</label>
+  
+            <input class="px-4" type="radio" name="dateE_input"  value="120">
+	    <label for="dateE_input"> 120</label>
+          </div>
+          </fieldset>
+            <!--
             <input type="date" name="dateE_input" class="form-control" id="floatingPassword" placeholder="Data Final" min="2001-01-01" required>
             <label for="floatingPassword">Data Final</label>
             <div class="invalid-feedback">
               Digite uma data final valida.
-            </div>
+            </div> -->
           </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Cadastrar</button>
+          <button class="w-100 btn btn-lg btn-primary" type="submit" onClick="loading();">Cadastrar</button>
           <hr class="my-4">
           <small class="text-body-secondary">Clique no botão para cadastrar a vulnerabilitade</small>
         </form>
