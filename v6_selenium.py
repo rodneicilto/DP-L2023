@@ -95,13 +95,13 @@ def web_scraping(v_sw, v_dateS, v_dateE, name_fsite, email_fsite):
             browser.back()
         time.sleep(10)
         browser.quit()
-        send_email.send(email_fsite, name_fsite)
+        #send_email.send(email_fsite, name_fsite)
 
     except:
-        #print('2parte-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
+        print('2parte-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
         #print('')
         #print('No Data was Found with parameters provided')
         #print('Topic NOT Found: ', vulnerability)
         #print('')
         #print('-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+')
-        send_email.send(email_fsite, name_fsite)
+        #send_email.send(email_fsite, name_fsite)

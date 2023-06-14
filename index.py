@@ -21,12 +21,12 @@ def home():
     return render_template('index.html')
 
 @app.route('/search', methods=['POST','GET'])
-def search():
+def research():
     flash('Dados inserido, aguarde que logo será enviado o resultado')
-    if str(request.form['dateS_input']) == '' or str(request.form['dateE_input']) == '':
-        return render_template("falha.html")
-    if str(request.form['sof_input']) == '' or str(request.form['email_input']) == '':
-        return render_template("falha.html")
+    #if str(request.form['dateS_input']) == '' or str(request.form['dateE_input']) == '':
+        #return render_template("falha.html")
+    #if str(request.form['sof_input']) == '' or str(request.form['email_input']) == '':
+        #return render_template("falha.html")
     name_fsite = str(request.form['name_input'])
     email_fsite = str(request.form['email_input'])
     sof_fsite = str(request.form['sof_input'])
@@ -53,8 +53,9 @@ def search():
     #list_email = send_email.send(email_fsite, name_fsite)
     list_form_fill = []
     list_form_fill = v6_selenium.web_scraping(sof_fsite, dateS_fsite, dateE_fsite, name_fsite, email_fsite)
-    #send_email.send(list_email) #send_form
-    return render_template('search.html')
+    send_email_fill = []
+    send_email_fill = send_email.send(email_fsite, name_fsite)
+    return render_template('search.html', results=request.form)
 
 #@app.route('/')
 #def run_script():

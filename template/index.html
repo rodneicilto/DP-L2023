@@ -85,6 +85,13 @@
       .bd-mode-toggle {
         z-index: 1500;
       }
+    .loading {
+    width: 35px;
+    height: 35px;
+    display: none;
+    background: url(/static/img/coffee-loading.gif) no-repeat;
+    cursor: wait;
+    }
     </style>
     <script type="text/javascript">
     window.onload=function(){//from ww  w . j  a  va2s. c  o  m
@@ -92,6 +99,7 @@
 	document.getElementsByName("dateS_input")[0].setAttribute('max', today);
 	document.getElementsByName("dateE_input")[0].setAttribute('max', today);
     }</script>
+    
     <script type="text/javascript">// <![CDATA[
         function loading(){
             $("#loading").show();
@@ -118,7 +126,7 @@
         <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
       </symbol>
     </svg>
-
+<!--
     <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
       <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
               id="bd-theme"
@@ -152,7 +160,7 @@
           </button>
         </li>
       </ul>
-    </div>
+    </div>-->
 
     
 <main>
@@ -180,8 +188,9 @@
         <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Vulnerabilidades por email</h1>
         <p class="col-lg-10 fs-4">Cadastre seu email indicando uma vulnerabilitade e receba informação por email</p>
       </div>
+      <div class="loading"></div>
       <div class="col-md-10 mx-auto col-lg-5">
-        <form action="/search" method="post" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+        <form action="search" method="post" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
           <div class="form-floating mb-3">
             <input type="firstName" name="name_input" class="form-control" id="floatingInput" placeholder="" value="" required>
             <label for="floatingInput">Digite seu nome</label>
@@ -234,7 +243,7 @@
               Digite uma data final valida.
             </div> -->
           </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit" onClick="loading();">Cadastrar</button>
+          <button class="w-100 btn btn-lg btn-primary" type="submit" onclick="loading();">Cadastrar</button>
           <hr class="my-4">
           <small class="text-body-secondary">Clique no botão para cadastrar a vulnerabilitade</small>
         </form>
@@ -244,22 +253,22 @@
 
   <div class="b-example-divider"></div>
 
-  <div class="px-4 pt-5 my-5 text-center border-bottom">
-    <h1 class="display-4 fw-bold text-body-emphasis">Principais Vulnerabilidades Hoje</h1>
+  <div class="bg-dark text-secondary px-4 py-5 text-center">
+    <h1 class="display-5 fw-bold text-white">Principais Vulnerabilidades Hoje</h1>
     <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">Aqui você encontra as Vulnerabilidades mais atuais publicadas</p>
+      <p class="fs-5 mb-4">Aqui você encontra as Vulnerabilidades mais atuais publicadas</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-        <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Segue:</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Outas<button>
+        <a href="https://nvd.nist.gov/general/nvd-dashboard" target="_black"><button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Clique aqui</button></a>
+	<!--<button type="button" class="btn btn-outline-secondary btn-lg px-4">Outas<button>-->
       </div>
     </div>
     <div class="overflow-hidden" style="max-height: 30vh;">
       <div class="container px-5">
-        <img src="/static/img/bootstrap-docs.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+        <img src="/static/img/nist_logo.svg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
       </div>
     </div>
   </div>
-
+<!--
   <div class="b-example-divider"></div>
 
   <div class="container col-xxl-8 px-4 py-5">
@@ -277,7 +286,7 @@
       </div>
     </div>
   </div>
-
+-->
   <div class="b-example-divider mb-0"></div>
 </main>
 
