@@ -8,7 +8,7 @@ Informação sobre o projeto:
     - Email que receberá a consulta
     - Data inicio e fim da consulta
 
-Pre-requisitos (Linux Debian OS)
+Pré-requisitos (Linux Debian OS)
 
 - Python 3
 - Instalação do npm
