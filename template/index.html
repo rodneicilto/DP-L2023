@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="/static/js/color-mode.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -85,13 +85,6 @@
       .bd-mode-toggle {
         z-index: 1500;
       }
-    .loading {
-    width: 35px;
-    height: 35px;
-    display: none;
-    background: url(/static/img/coffee-loading.gif) no-repeat;
-    cursor: wait;
-    }
     </style>
     <script type="text/javascript">
     window.onload=function(){//from ww  w . j  a  va2s. c  o  m
@@ -99,14 +92,12 @@
 	document.getElementsByName("dateS_input")[0].setAttribute('max', today);
 	document.getElementsByName("dateE_input")[0].setAttribute('max', today);
     }</script>
-    
-    <script type="text/javascript">// <![CDATA[
-        function loading(){
-            $("#loading").show();
-            $("#content").hide();       
-        }// ]]></script>
-
-    
+    <script>
+     $('form').submit(function(){
+     	$('#waiting').show();
+     	$(this).children('input[type=submit]').prop('disabled', true);
+     });
+    </script>
     <!-- Custom styles for this template -->
     <link href="/static/css/heroes.css" rel="stylesheet">
   </head>
@@ -188,7 +179,6 @@
         <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Vulnerabilidades por email</h1>
         <p class="col-lg-10 fs-4">Cadastre seu email indicando uma vulnerabilitade e receba informação por email</p>
       </div>
-      <div class="loading"></div>
       <div class="col-md-10 mx-auto col-lg-5">
         <form action="search" method="post" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
           <div class="form-floating mb-3">
@@ -243,10 +233,11 @@
               Digite uma data final valida.
             </div> -->
           </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit" onclick="loading();">Cadastrar</button>
+          <button class="w-100 btn btn-lg btn-primary" type="submit" id="submit">Cadastrar</button>
           <hr class="my-4">
           <small class="text-body-secondary">Clique no botão para cadastrar a vulnerabilitade</small>
         </form>
+        <div id="waiting" style="display:none">Please wait...</div>
       </div>
     </div>
   </div>
