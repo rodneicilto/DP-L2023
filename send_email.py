@@ -31,7 +31,7 @@ def send(email_fsite, name_fsite):
     email_msg['To'] = email_fsite
     email_msg.add_header('reply-to', no_reply) 
     email_msg.attach(MIMEText("Prezado, "+name_fsite+"! "))
-    email_msg.attach(MIMEText("Segue abaixo a consulta sobre vulnerabilidades. Em anexo, segue planilha do excel com dados completos",'Plain'))
+    email_msg.attach(MIMEText("Segue consulta realizada sobre a vulnerabilidade pesquisada e em anexo, encontra-se o arquivo em excel com as informações detalhadas.",'Plain'))
     email_msg.attach(MIMEText(corpo_email,'html'))
     
     #Anexar arquivo
